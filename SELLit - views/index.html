@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style/site.css">
+    <title>SELLit</title>
+</head>
+
+<body>
+    <div id="main-container">
+
+        <!-- Header Component -->
+        <nav>
+            <a href="#">See Products</a>
+
+            <!-- Logged -->
+            <div class="logged">
+                <a href="#">Share product</a>
+                <div class="left">
+                    <a href="">Hi, {username}</a>
+                    <a href="">Logout</a>
+                </div>
+            </div>
+
+            <!-- Guest -->
+            <div class="guest">
+                <a href="">Home</a>
+                <div class="left">
+                    <a href="#">Login</a>
+                    <a href="#">Register</a>
+                </div>
+            </div>
+
+        </nav>
+
+
+        <!-- Home Page -->
+        <section id="home-page">
+            <div id="home-page-container">
+                <h1>Your belongings are treasures for others.</h1>
+                <h2>Find your choice. <span>Log in</span> right now!</h2>
+                <div id="console-auth">
+                    <div id="wrap-buttons">
+                        <a href="#" class="console">Login</a>
+                        <a href="#" class="console">Register</a>
+                    </div>
+
+                    <img src="./images/zx952y526_3337918.jpg" alt="home-page-photo">
+                </div>
+            </div>
+        </section>
+
+        <!-- Login Page -->
+        <section id="login-page">
+            <form id="login">
+                <div class="auth-container">
+                    <h1>Login Page</h1>
+                    <label for="email">Email</label>
+                    <input id="email" placeholder="Enter Email..." name="email" type="text">
+                    <label for="password">Password</label>
+                    <input id="password" type="password" placeholder="Enter Password..." name="password">
+                    <input type="submit" class="authbtn button" value="Login">
+                    <div class="container login">
+                        <p>Don't have an account?<a href="#">Sign up</a> now!</p>
+                    </div>
+                </div>
+            </form>
+        </section>
+    </div>
+</body>
+
+</html>

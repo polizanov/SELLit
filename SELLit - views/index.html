@@ -172,8 +172,19 @@
                     </div>
                 </div>
             </div>
+
+            <div class="no-data">
+                <div class="no-data-wrapper">
+                    <h1>Looks like there are no products yet!</h1>
+                    <h2>Be the first one?</h2>
+                    <div id="add-first-wrap">
+                        <a href="#" class="details">Share prduct</a>
+                    </div>
+                </div>
+            </div>
         </section>
 
+        <!-- Share Products Page -->
         <section id="share-product-page">
             <form id="share">
                 <div class="share-container">
@@ -192,13 +203,32 @@
                     <label for="price">Price</label>
                     <input id="price" placeholder="Enter Price..." name="price" type="number">
                     <input type="submit" class="button" value="Share">
-                    
-
                 </div>
             </form>
         </section>
 
-
+        <!-- Edit Products Page -->
+        <section id="share-product-page">
+            <form id="share">
+                <div class="share-container">
+                    <h1>Edit Product</h1>
+                    <label for="name">Name</label>
+                    <input id="name" placeholder="Enter Name..." name="name" type="text" value="Handbag - CREOLE">
+                    <label for="imageUrl">Image URL</label>
+                    <input id="iamgeUrl" placeholder="Paste Image Url..." name="imageUrl" type="text" value="{url-image}">
+                    <label for="description">Description</label>
+                    <textarea id="description" placeholder="Say something about your product..." name="description">Some description</textarea>
+                    <label for="condition">Condition: </label>
+                    <select id="condition">
+                        <option selected value="New">New</option>
+                        <option value="Used">Used</option>
+                    </select>
+                    <label for="price">Price</label>
+                    <input id="price" placeholder="Enter Price..." name="price" type="number" value="999">
+                    <input type="submit" class="button" value="Share">
+                </div>
+            </form>
+        </section>
 
     </div>
 </body>

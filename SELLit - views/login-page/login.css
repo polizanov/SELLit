@@ -1,0 +1,72 @@
+/* Login */
+.auth-container {
+    background-color: rgb(250, 238, 217);
+    padding: 20px;
+    text-align: center;
+    margin: 10px;
+}
+
+input[type=text], input[type=password] {
+    width: 50%;
+    margin: 5px 0 22px 0;
+    padding: 15px;
+    display: inline-block;
+    border: none;
+    background: white;
+}
+
+input[type=text]:focus, input[type=password]:focus {
+    background-color: white;
+    outline: none;
+}
+
+.authbtn {
+    color: rgb(241, 189, 110);
+    background-color: white;
+    padding: 14px 18px;
+    margin: 6px 0;
+    border: 1px;
+    cursor: pointer;
+    width: 50%;
+    font-weight: bold;
+    font-size: 25px;
+}
+
+.authbtn:hover {
+    color: white;
+    background-color: rgb(241, 189, 110);
+    padding: 14px 18px;
+    margin: 6px 0;
+    border: 1px;
+    cursor: pointer;
+    width: 50%;
+    font-weight: bold;
+    font-size: 25px;
+    border-radius: 0.25rem;
+}
+
+a {
+    color: rgb(241, 189, 110);
+}
+
+.auth-container > label {
+    font-weight: bold;
+    display: block;
+    font-size: 25px;
+}
+
+h1 {
+    color:rgb(241, 189, 110);
+    font-size: 40px;
+}
+
+/* Body */
+body {
+    padding: 0;
+    margin: 0;
+}
+
+#main-container {
+    padding: 0;
+    margin: 0;
+}

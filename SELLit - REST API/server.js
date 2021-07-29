@@ -6,10 +6,9 @@ const log = require("./middlewares/log");
 const expressConfig = require("./config/express");
 const router = require("./router")
 
+expressConfig(app);
 
 app.use(log);
-
-expressConfig(app);
 
 app.use(router);
 

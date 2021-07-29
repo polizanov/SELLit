@@ -13,8 +13,6 @@ router.post("/login", async (req, res) => {
 })
 
 router.post("/register", async (req, res) => {
-    console.log(req.body)
-    console.log("....")
     try {
         let data = await authService.register(req.body);
         res.status(201).json(data);

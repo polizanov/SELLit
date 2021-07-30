@@ -4,4 +4,7 @@ module.exports = {
     "SALT_ROUNDS": 11,
     "JWT_SECRET": "THIS-IS-SECRET",
     "SESSION": "sessiontoken",
+    "IMAGE_URL_PATTERN": /https?/,
+    "CONDITION_PATTERN": /^(New|Used)$/,
+    "PHONE_PATTERN": /^([0-9|+]+)$/,
 }

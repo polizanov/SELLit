@@ -34,6 +34,11 @@ const postSchema = new mongoose.Schema({
         maxLength: 14,
         validate: /^([0-9|+]+)$/
     },
+    creator: {
+        type: mongoose.Types.ObjectId,
+        requred: true,
+        ref: "User"
+    },
     liked: [{
         type: mongoose.Types.ObjectId,
         ref: "User"

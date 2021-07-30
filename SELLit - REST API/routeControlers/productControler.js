@@ -25,4 +25,46 @@ router.post("/create-product", isAuth, async (req, res) => {
     }
 })
 
+router.put("/edit-product/:productId", isAuth, async (req, res) => {
+    try {
+        await productService.edit(req.body, res.locals.user.id, req.params.productId);
+        res.status(201).json({ message: "Created" });
+    } catch (err) {
+        console.log(err)
+        res.status(400).json({ message: err.message })
+    }
+})
+
+router.delete("/delete-product/:productId", isAuth, async (req, res) => {
+    try {
+        await productService.deleteOne(res.locals.user.id, req.params.productId);
+        res.status(201).json({ message: "Created" });
+    } catch (err) {
+        console.log(err)
+        res.status(400).json({ message: err.message })
+    }
+})
+
+router.get("/details/:productId", async (req, res) => {
+    try {
+        let data = await productService.getOne(req.params.productId);
+        res.status(201).json(data);
+    } catch (err) {
+        console.log(err)
+        res.status(400).json({ message: err.message })
+    }
+})
+
+router.get("/my-profile",isAuth, async (req, res) => {
+    try {
+        let data = await productService.getProfile(res.locals.user.id);
+        res.status(201).json(data);
+    } catch (err) {
+        console.log(err)
+        res.status(400).json({ message: err.message })
+    }
+})
+
+
+
 module.exports = router;

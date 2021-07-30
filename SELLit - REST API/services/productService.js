@@ -1,4 +1,5 @@
 const Post = require("../schemes/Post");
+const User = require("../schemes/User");
 const { IMAGE_URL_PATTERN, CONDITION_PATTERN, PHONE_PATTERN } = require("../config")
 
 function getAllProducts() {
@@ -58,7 +59,85 @@ async function create(bodyData, userId) {
     return productObj.save()
 }
 
+async function edit(bodyData, userId, productId) {
+    let product = await Post.findOne({ _id: productId });
+
+    if (product.creator.toString() !== userId) {
+        throw { message: "Unauthorized!" }
+    }
+
+    let { name, imageUrl, description, condition, price, phone } = bodyData;
+
+    let data = [name, imageUrl, description, condition, price, phone]
+        .map(x => {
+            if (x) {
+                return x.trim();
+            }
+
+            return " "
+        })
+
+    if (data.includes(" ")) {
+        throw { message: "All fields are required!" }
+    }
+
+    if (data[0].length < 4 || data[1].length < 4) {
+        throw { message: "Name and ImageUrl must be at least 4 characters!" }
+    }
+
+    if (!IMAGE_URL_PATTERN.test(data[1])) {
+        throw { message: "Invalid ImageUrl" }
+    }
+
+    if (data[2].length < 8) {
+        throw { message: "Description must be at least 8 characters!" }
+    }
+
+    if (!CONDITION_PATTERN.test(data[3])) {
+        throw { message: "Invalid Condition value" }
+    }
+
+    if (!(!!Number(data[4]))) {
+        throw { message: "Invalid Price value" }
+    }
+
+    if (!PHONE_PATTERN.test(data[5])) {
+        throw { message: "Invalid Phone value" }
+    }
+
+    return Post.updateOne({ _id: productId }, {
+        name: data[0],
+        imageUrl: data[1],
+        description: data[2],
+        condition: data[3],
+        price: data[4],
+        phone: data[5]
+    })
+}
+
+async function deleteOne(userId, productId) {
+    let product = await Post.findOne({ _id: productId });
+
+    if (product.creator.toString() !== userId) {
+        throw { message: "Unauthorized!" }
+    }
+
+    return Post.deleteOne({ _id: productId })
+}
+
+function getOne(productId) {
+    return Post.findOne({ _id: productId });
+}
+
+function getProfile(userId) {
+    return Post.findOne({ creator: userId });
+}
+
 module.exports = {
     getAllProducts,
     create,
+    edit,
+    deleteOne,
+    getOne,
+    getProfile,
 }

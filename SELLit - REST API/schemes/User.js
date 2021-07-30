@@ -14,15 +14,7 @@ const userSchema = new mongoose.Schema({
     password: {
         type: String,
         requred: true
-    },
-    posts: [{
-        type: mongoose.Types.ObjectId,
-        ref: "Post"
-    }],
-    likes: [{
-        type: mongoose.Types.ObjectId,
-        ref: "Post"
-    }]
+    }
 });
 
 module.exports = mongoose.model("User", userSchema);

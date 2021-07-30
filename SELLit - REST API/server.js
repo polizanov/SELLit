@@ -4,11 +4,14 @@ const { PORT } = require("./config");
 
 const log = require("./middlewares/log");
 const expressConfig = require("./config/express");
-const router = require("./router")
+const router = require("./router");
+const auth = require("./middlewares/auth");
 
 expressConfig(app);
 
 app.use(log);
+
+app.use(auth);
 
 app.use(router);
 

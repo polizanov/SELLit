@@ -4,18 +4,18 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CoreModule } from './core/core.module';
-import { LoginComponent } from './authorization/login/login.component';
-import { RegisterComponent } from './authorization/register/register.component';
+import { AuthorizationModule } from './authorization/authorization.module';
+import { SharedModule } from './shared/shared.module';
 
 @NgModule({
   declarations: [
     AppComponent,
-    LoginComponent,
-    RegisterComponent
   ],
   imports: [
     BrowserModule,
     CoreModule,
+    AuthorizationModule,
+    SharedModule,
     AppRoutingModule
   ],
   providers: [],

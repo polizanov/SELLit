@@ -1,0 +1,30 @@
+/* Navigation  */
+
+nav {
+    background-color: rgb(241, 189, 110);
+    overflow: hidden;
+}
+
+nav a {
+    font-size: 19px;
+    text-decoration: none;
+    padding: 14px 16px;
+    color: azure;
+    float: left;
+    text-align: center;
+}
+
+nav a:hover {
+    font-size: 19px;
+    text-decoration: none;
+    padding: 14px 16px;
+    color: rgb(241, 189, 110);
+    background-color:azure;
+    float: left;
+    text-align: center;
+}
+
+.left {
+    float: right;
+}
+

@@ -15,8 +15,11 @@ const routes: Routes = [
     },
     {
         path: "profile",
-        component: ProfileComponent
-    }
+        children: [{
+            path: ":profileId",
+            component: ProfileComponent
+        }]
+    },
 ];
 
 @NgModule({

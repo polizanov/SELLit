@@ -20,7 +20,7 @@ export class HeaderComponent {
 
   logout(): void {
     this.authService.removeToken();
-    this.router.navigate(["/"])
+    this.router.navigate(["/"]);
   }
 
 }

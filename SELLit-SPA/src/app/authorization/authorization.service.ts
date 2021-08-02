@@ -16,6 +16,6 @@ export class AuthorizationService {
   }
 
   public removeToken(): void {
-    sessionStorage.clear();
+    localStorage.clear();
   }
 }

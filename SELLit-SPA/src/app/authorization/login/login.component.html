@@ -7,7 +7,7 @@
             <input id="email" placeholder="Enter Email..." name="email" type="text">
             <label for="password">Password</label>
             <input id="password" type="password" placeholder="Enter Password..." name="password">
-            <input type="submit" class="authbtn button" value="Login">
+            <input (click)="login()" type="submit" class="authbtn button" value="Login">
             <div class="container login">
                 <p>Don't have an account?<a routerLink="/register">Sign up</a> now!</p>
             </div>

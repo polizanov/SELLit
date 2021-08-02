@@ -7,9 +7,9 @@
     <div *ngIf="isLogged()" class="logged">
         <a routerLink="/create">Share product</a>
         <div class="left">
-            <a Hi, username [routerLink]="['/profile', 1]"></a>
+            <a [routerLink]="['/profile', 1]">Hi, username</a>
             <a href="#">My Favourite Products</a>
-            <a (click)="logout()">Logout</a>
+            <a (click)="logout()" href="#">Logout</a>
         </div>
     </div>
 

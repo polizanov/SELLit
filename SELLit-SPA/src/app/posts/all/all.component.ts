@@ -17,7 +17,7 @@ export class AllComponent {
     private generatePosts: GeneratePostService,
     private authService: AuthorizationService
   ) {
-    generatePosts.loadPost().subscribe(posts => this.posts = posts)
+    this.generatePosts.loadPosts().subscribe(posts => this.posts = posts)
   }
 
   isLogged(): boolean {

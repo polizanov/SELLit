@@ -1,3 +1,5 @@
+import { ICreator } from "./ICreator"
+
 export interface IPost {
     _id: string,
     name: string,
@@ -6,6 +8,6 @@ export interface IPost {
     condition: string,
     price: Number,
     phone: string,
-    creator: string,
+    creator: ICreator,
     __v: Number,
 }

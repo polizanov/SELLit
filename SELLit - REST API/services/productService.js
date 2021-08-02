@@ -126,7 +126,9 @@ async function deleteOne(userId, productId) {
 }
 
 function getOne(productId) {
-    return Post.findOne({ _id: productId });
+    return Post.findOne({ _id: productId })
+        .populate({path: "creator", select: ["email", "username", "likes"]})
+        
 }
 
 function getProfile(userId) {

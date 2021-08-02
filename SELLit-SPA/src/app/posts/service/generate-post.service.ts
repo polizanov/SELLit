@@ -13,7 +13,11 @@ export class GeneratePostService {
     private httpClient: HttpClient,
   ) { }
 
-  loadPost(): Observable<IPost[]> {
+  loadPosts(): Observable<IPost[]> {
     return this.httpClient.get<IPost[]>('http://localhost:3000/all-products')
+  }
+
+  loadPostById(id: string): Observable<IPost> {
+    return this.httpClient.get<IPost>(`http://localhost:3000/details/${id}`)
   }
 }

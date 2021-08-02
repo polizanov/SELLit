@@ -7,6 +7,7 @@ import { CoreModule } from './core/core.module';
 import { AuthorizationModule } from './authorization/authorization.module';
 import { SharedModule } from './shared/shared.module';
 import { PostsModule } from './posts/posts.module';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -14,6 +15,7 @@ import { PostsModule } from './posts/posts.module';
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     CoreModule,
     AuthorizationModule,
     PostsModule,

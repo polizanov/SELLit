@@ -1,15 +1,29 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
+import { GeneratePostService } from '../service/generate-post.service';
+
+import { IPost } from "../../shared/interfaces/IPost"
+import { AuthorizationService } from 'src/app/authorization/authorization.service';
 
 @Component({
   selector: 'app-all',
   templateUrl: './all.component.html',
   styleUrls: ['./all.component.css']
 })
-export class AllComponent implements OnInit {
+export class AllComponent {
 
-  constructor() { }
+  posts: IPost[] | null = null;
 
-  ngOnInit(): void {
+  constructor(
+    private generatePosts: GeneratePostService,
+    private authService: AuthorizationService
+  ) {
+    generatePosts.loadPost().subscribe(posts => this.posts = posts)
   }
+
+  isLogged(): boolean {
+    return !!this.authService.token
+  }
+
+
 
 }

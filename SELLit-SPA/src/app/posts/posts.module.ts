@@ -6,6 +6,10 @@ import { CreateComponent } from './create/create.component';
 import { EditComponent } from './edit/edit.component';
 import { PostsRoutingModule } from './posts-routing.module';
 
+import { SharedModule } from '../shared/shared.module';
+import { GeneratePostService } from './service/generate-post.service';
+import { HttpClient } from '@angular/common/http';
+
 
 
 @NgModule({
@@ -17,7 +21,11 @@ import { PostsRoutingModule } from './posts-routing.module';
   ],
   imports: [
     PostsRoutingModule,
-    CommonModule
+    CommonModule,
+    SharedModule,
+  ],
+  providers: [
+    GeneratePostService,
   ]
 })
 export class PostsModule { }

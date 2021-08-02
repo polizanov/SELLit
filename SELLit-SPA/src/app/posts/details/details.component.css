@@ -1,0 +1,121 @@
+.details-container {
+    background-color: rgb(250, 238, 217);
+    padding: 20px;
+    text-align: center;
+    margin: 10px;
+}
+
+.product-img {
+    padding: 3% 3%;
+}
+
+.product-img img {
+    width: 30%;
+}
+
+.decription-wrapper {
+    margin-bottom: 50px;
+    text-align: justify;
+    box-shadow: -6px 7px 25px 0px #000000, 9px -8px 31px -12px rgb(0 0 0 / 0%);
+    padding:20px;
+    margin-left: 14%;
+    margin-right: 14%;
+    background-color: white;
+}
+
+.decription-wrapper:hover {
+    background-color: rgb(248, 240, 230);
+}
+
+.decription-wrapper p {
+    font-size: 20px;
+    padding: 1% 2%;
+}
+
+#price {
+    text-align: left;
+    padding-left: 14%;
+    font-size: 25px;
+}
+
+#price span {
+    color: rgb(235, 143, 6);
+}
+
+.buttons {
+    text-align: left;
+    padding-left: 14%;
+    font-size: 25px;
+}
+
+.buttons a {
+    color: rgb(241, 189, 110);;
+    background-color: white;
+    border-color: rgb(241, 189, 110);
+    display: inline-block;
+    text-decoration: none;
+    font-weight: 400;
+    text-align: center;
+    vertical-align: middle;
+    cursor: pointer;
+    border: 1px;
+    padding: 0.375rem 1rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    border-radius: 0.05rem;
+}
+
+.buttons p span {
+    color: tomato;
+}
+
+#edit {
+    background-color: rgb(126, 120, 37);
+    color: white;
+}
+
+#edit:hover {
+    background-color: rgb(238, 226, 117);
+    color: rgb(126, 120, 37);
+    border-radius: 0.25rem;
+}
+
+#delete {
+    background-color: rgb(196, 46, 26);
+    color: white;
+}
+
+#delete:hover {
+    background-color: rgb(253, 158, 158);
+    color: rgb(196, 46, 26);
+    border-radius: 0.25rem;
+}
+
+#interest {
+    background-color: rgb(0, 155, 202);
+    color: white;
+}
+
+#interest:hover {
+    background-color: rgb(215, 246, 255);
+    color: rgb(0, 155, 202);
+    border-radius: 0.25rem;
+}
+
+#interest-alerady {
+    cursor: text;
+    background-color: rgb(247, 247, 247);
+    color: rgb(0, 155, 202);
+}
+
+.creator {
+    text-align: left;
+    padding-left: 5%;
+    font-size: 25px;
+    box-shadow: -6px 7px 25px 0px #000000, 9px -8px 31px -12px rgb(0 0 0 / 0%);
+    margin-left: 14%;
+    margin-right: 46%;
+    border: 3px solid orange;
+    background-color: rgb(253, 207, 121);
+    border-radius: 37px;
+}

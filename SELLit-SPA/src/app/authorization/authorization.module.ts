@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { ProfileComponent } from './profile/profile.component';
-import { AauthRoutingModule } from './authorization-routing.module';
+import { AuthRoutingModule } from './authorization-routing.module';
 import { RouterModule } from '@angular/router';
 
 
@@ -16,7 +16,7 @@ import { RouterModule } from '@angular/router';
   ],
   imports: [
     CommonModule,
-    AauthRoutingModule,
+    AuthRoutingModule,
   ]
 })
 export class AuthorizationModule { }

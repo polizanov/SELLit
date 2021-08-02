@@ -1,63 +1,3 @@
-/* Profile Page */
-.profile-container {
-    background-color: rgb(250, 238, 217);
-    padding: 20px;
-    text-align: center;
-    margin: 10px;
-}
-
-.top-header {
-    display: flex;
-    flex-wrap: wrap;
-    margin: 10px;
-} 
-
-.product-wrap {
-    margin-left: 30px;
-    padding-right: 10px;
-    padding-left: 10px;
-    position: relative;
-    width: 100%;
-    flex: 0 0 100%;
-    max-width: 29%;
-    display: inline-block;
-    margin: 20px;
-}
-
-.profile-info {
-    margin-top: 30px;
-    display: flex;
-    margin-left: 30%;
-    margin-right: 30%;
-    border-radius: 13px;
-    box-shadow: -4px -1px 25px 0px #000000, 9px -8px 31px -12px rgb(0 0 0 / 0%);
-}
-
-.profile-info img {
-    display: block;
-    margin-top: 25px;
-    margin-bottom: 30px;
-    margin-left: 20px;
-    height: 200px;
-    width: 200px;
-    border-radius: 13px;
-}
-
-#user-data {
-    margin: 40px ;
-}
-
-#user-data p {
-    text-align: left;
-    font-size: 22px;
-}
-
-h1 {
-    text-align: center;
-    color:rgb(241, 189, 110);
-    font-size: 40px;
-}
-
 #see-products-page {
     margin: 10px;
     background-color: rgb(250, 238, 217);
@@ -211,11 +151,4 @@ img {
 #add-first-wrap {
     text-align: center;
     padding-bottom: 20px;
-}
-
-
-/* style */
-body {
-    padding: 0;
-    margin: 0;
 }

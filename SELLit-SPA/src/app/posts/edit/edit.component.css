@@ -1,12 +1,16 @@
-/* Login */
-.auth-container {
+#share-product-page {
+    margin: 10px;
+    background-color: rgb(250, 238, 217);
+}
+
+.share-container {
     background-color: rgb(250, 238, 217);
     padding: 20px;
     text-align: center;
     margin: 10px;
 }
 
-input[type=text], input[type=password] {
+input[type=text], input[type=number] {
     width: 50%;
     margin: 5px 0 22px 0;
     padding: 15px;
@@ -15,12 +19,31 @@ input[type=text], input[type=password] {
     background: white;
 }
 
-input[type=text]:focus, input[type=password]:focus {
+textarea {
+    width: 50%;
+    margin: 5px 0 22px 0;
+    padding: 15px;
+    display: inline-block;
+    border: none;
+    background: white;
+    height: 100px;
+}
+
+select {
+    width: 52%;
+    margin: 5px 0 22px 0;
+    padding: 15px;
+    display: inline-block;
+    border: none;
+    background: white;
+}
+
+input[type=text]:focus, input[type=number]:focus {
     background-color: white;
     outline: none;
 }
 
-.authbtn {
+.button {
     color: rgb(241, 189, 110);
     background-color: white;
     padding: 14px 18px;
@@ -32,7 +55,7 @@ input[type=text]:focus, input[type=password]:focus {
     font-size: 25px;
 }
 
-.authbtn:hover {
+.button:hover {
     color: white;
     background-color: rgb(241, 189, 110);
     padding: 14px 18px;
@@ -45,28 +68,15 @@ input[type=text]:focus, input[type=password]:focus {
     border-radius: 0.25rem;
 }
 
-a {
-    color: rgb(241, 189, 110);
-}
 
-.auth-container > label {
+.share-container > label {
     font-weight: bold;
     display: block;
     font-size: 25px;
 }
 
 h1 {
+    text-align: center;
     color:rgb(241, 189, 110);
     font-size: 40px;
-}
-
-/* Body */
-body {
-    padding: 0;
-    margin: 0;
-}
-
-#main-container {
-    padding: 0;
-    margin: 0;
 }

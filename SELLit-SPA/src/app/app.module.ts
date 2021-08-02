@@ -20,7 +20,6 @@ import { PostsModule } from './posts/posts.module';
     SharedModule,
     AppRoutingModule
   ],
-  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

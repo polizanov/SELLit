@@ -49,7 +49,7 @@ async function register(data) {
 
     let token = jwt.sign({ id: user._id, username: user.username }, JWT_SECRET);
 
-    return { sessionToken: token, objectId: user._id, username: user.username }
+    return { sessionToken: token, objectId: user._id, username: user.username, email: user.email }
 }
 
 async function login(data) {
@@ -73,7 +73,7 @@ async function login(data) {
 
     let token = jwt.sign({ id: user._id, username: user.username }, JWT_SECRET);
 
-    return { sessionToken: token, objectId: user._id, username: user.username }
+    return { sessionToken: token, objectId: user._id, username: user.username, email: user.email }
 }
 
 module.exports = {

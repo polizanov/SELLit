@@ -6,6 +6,7 @@ import { ProfileComponent } from './profile/profile.component';
 import { AuthRoutingModule } from './authorization-routing.module';
 import { RouterModule } from '@angular/router';
 import { AuthorizationService } from './authorization.service';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 
@@ -17,6 +18,7 @@ import { AuthorizationService } from './authorization.service';
   ],
   imports: [
     CommonModule,
+    ReactiveFormsModule,
     AuthRoutingModule,
   ],
   providers: [

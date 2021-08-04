@@ -119,3 +119,9 @@
     background-color: rgb(253, 207, 121);
     border-radius: 37px;
 }
+
+h1 {
+    text-align: center;
+    color:rgb(241, 189, 110);
+    font-size: 40px;
+}

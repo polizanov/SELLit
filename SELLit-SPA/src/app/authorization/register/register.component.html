@@ -1,15 +1,57 @@
 <!-- Register Page -->
 <section id="register-page">
-    <form id="register">
+    <form [formGroup]="form" id="register" (ngSubmit)="register()">
         <div class="auth-container">
             <h1>Register Page</h1>
+            <label for="username">Username</label>
+            <input formControlName="username" id="username" placeholder="Enter Username..." name="username" type="text">
+            <ng-container *ngIf="form.get('username')?.touched">
+                ` <p *ngIf="form.get('username')?.errors?.required" class="error">
+                    Username is required!
+                </p>
+                <p *ngIf="form.get('username')?.errors?.minlength" class="error">
+                    Username should be at least 4 charecters!
+                </p>
+            </ng-container>
+
+
+
             <label for="email">Email</label>
-            <input id="email" placeholder="Enter Email..." name="email" type="text">
+            <input formControlName="email" id="email" placeholder="Enter Email..." name="email" type="text">
+            <ng-container *ngIf="form.get('email')?.touched">
+                <p *ngIf="form.get('email')?.errors?.required" class="error">
+                    Email is required!
+                </p>
+                <p *ngIf="form.get('email')?.errors?.invalidEmail" class="error">
+                    Invalid Email!
+                </p>
+            </ng-container>
+
+
             <label for="password">Password</label>
-            <input id="password" type="password" placeholder="Enter Password..." name="password">
+            <input formControlName="password" id="password" type="password" placeholder="Enter Password..." name="password">
+            <ng-container *ngIf="form.get('password')?.touched">
+                <p *ngIf="form.get('password')?.errors?.required" class="error">
+                    Password is required!
+                </p>
+                <p *ngIf="form.get('password')?.errors?.minlength" class="error">
+                    Password must be at least 4 characters!
+                </p>
+            </ng-container>
+
+
             <label for="repeatPassword">Repeat Password</label>
-            <input id="repeatPassword" type="password" placeholder="Enter Repeat Password..."
-                name="repeatPassword">
+            <input formControlName="repeatPassword" id="repeatPassword" type="password" placeholder="Enter Repeat Password..." name="repeatPassword">
+            <ng-container *ngIf="form.get('repeatPassword')?.touched">
+                <p *ngIf="form.get('repeatPassword')?.errors?.required" class="error">
+                    Repeat Password is required!
+                </p>
+                <p *ngIf="form.get('repeatPassword')?.errors?.isIncorect" class="error">
+                    Repeat Password and Password does not match!
+                </p>
+            </ng-container>
+
+
             <input type="submit" class="authbtn button" value="Register">
             <div class="container login">
                 <p>Already have an account?<a routerLink="/login">Sign in</a> now!</p>

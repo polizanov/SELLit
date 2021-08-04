@@ -8,6 +8,7 @@ import { AuthorizationModule } from './authorization/authorization.module';
 import { SharedModule } from './shared/shared.module';
 import { PostsModule } from './posts/posts.module';
 import { HttpClientModule } from '@angular/common/http';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -16,6 +17,8 @@ import { HttpClientModule } from '@angular/common/http';
   imports: [
     BrowserModule,
     HttpClientModule,
+    ReactiveFormsModule,
+    FormsModule,
     CoreModule,
     AuthorizationModule,
     PostsModule,

@@ -18,9 +18,22 @@ export class HeaderComponent {
     return !!this.authService.token
   }
 
+  username(): string { 
+    return this.authService.username
+  }
+
   logout(): void {
-    this.authService.removeToken();
-    this.router.navigate(["/"]);
+    this.authService.logout().subscribe({
+      next: () => {
+        this.router.navigate(["/"]);
+        this.authService.clearLocalStorage();
+      }, 
+      error: () => {
+        this.router.navigate(["/"]);
+        this.authService.clearLocalStorage();
+      }
+      
+    })
   }
 
 }

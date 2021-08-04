@@ -1,21 +1,61 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { IUser } from '../shared/interfaces/auth/IUser';
+import { IUserRegister } from "../shared/interfaces/auth/IUserRegister"
+import { environment } from "../../environments/environment"
+import { tap } from 'rxjs/operators';
+
+const { apiURL } = environment;
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthorizationService {
 
-  constructor() { }
+  constructor(
+    private httpClient: HttpClient,
+  ) { }
 
-  public setToken(token: string) : void {
-    localStorage.setItem("sessionToken", `${token}`)
+  public setToken(name: string, token: string): void {
+    localStorage.setItem(`${name}`, `${token}`)
   }
 
   get token(): any {
     return localStorage.getItem("sessionToken");
   }
 
-  public removeToken(): void {
+  get username(): any {
+    return localStorage.getItem("username");
+  }
+
+  get email(): any {
+    return localStorage.getItem("email");
+  }
+
+  get id(): any {
+    return localStorage.getItem("_id");
+  }
+
+  register(data: IUserRegister) {
+    return this.httpClient.post<IUser>(`${apiURL}/auth/register`, data).pipe(
+      tap((user: IUser) => {
+        this.setToken("sessionToken", user.sessionToken);
+        this.setToken("username", user.username);
+        this.setToken("email", user.email);
+        this.setToken("_id", user.objectId);
+      })
+    )
+  }
+
+  logout() {
+    return this.httpClient.get(`${apiURL}/auth/logout`, {
+      headers: {
+        "sessionToken": this.token
+      }
+    })
+  }
+
+  public clearLocalStorage(): void {
     localStorage.clear();
   }
 }

@@ -35,7 +35,14 @@ export class RegisterComponent implements OnDestroy {
       return;
     }
 
-    console.log(this.form.value)
+    this.authSevice.register(this.form.value).subscribe({
+      next: () => {
+        this.router.navigate(["/"])
+      },
+      error: (err) => {
+        this.authSevice.clearLocalStorage();
+      }
+    })
   }
 
   ngOnDestroy(): void {

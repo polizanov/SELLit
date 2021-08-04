@@ -1,4 +1,5 @@
 const { Router } = require("express");
+const isAuth = require("../middlewares/isAuth");
 const router = Router();
 
 const authService = require("../services/authService")
@@ -22,9 +23,9 @@ router.post("/register", async (req, res) => {
     }
 })
 
-router.get("/logout", (req, res) => {
+router.get("/logout", isAuth, (req, res) => {
     res.locals.user = undefined;
-    res.status(200).json();
+    res.status(200).json({});
 })
 
 module.exports = router;

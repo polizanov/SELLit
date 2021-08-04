@@ -13,7 +13,7 @@ export class LoginComponent {
   ) { }
 
   public login(): void {
-    this.authService.setToken("user-logged")
+    // this.authService.setToken("user-logged")
   }
 
 }

@@ -9,7 +9,7 @@
         <div class="left">
             <a [routerLink]="['/profile', userId()]">Hi, {{username()}}</a>
             <a href="#">My Favourite Products</a>
-            <a (click)="logout()" href="#">Logout</a>
+            <a (click)="logout()" routerLink="/">Logout</a>
         </div>
     </div>
 

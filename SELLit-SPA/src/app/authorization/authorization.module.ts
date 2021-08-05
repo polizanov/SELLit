@@ -7,6 +7,7 @@ import { AuthRoutingModule } from './authorization-routing.module';
 import { RouterModule } from '@angular/router';
 import { AuthorizationService } from './authorization.service';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { NotificationComponent } from '../shared/notification/notification.component';
 
 
 
@@ -14,7 +15,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
   declarations: [
     LoginComponent,
     RegisterComponent,
-    ProfileComponent
+    ProfileComponent,
   ],
   imports: [
     CommonModule,
@@ -22,7 +23,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     AuthRoutingModule,
   ],
   providers: [
-    AuthorizationService
+    AuthorizationService,
+    NotificationComponent
   ]
 })
 export class AuthorizationModule { }

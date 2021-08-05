@@ -3,6 +3,8 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthorizationService } from '../authorization.service';
 
+import {IError} from "../../shared/interfaces/IError"
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -11,6 +13,9 @@ import { AuthorizationService } from '../authorization.service';
 export class LoginComponent {
 
   form: FormGroup;
+  
+  errorMessage: string | undefined;
+  
 
   constructor(
     private formBuilder: FormBuilder,
@@ -28,7 +33,8 @@ export class LoginComponent {
       return;
     }
 
-    this.authSevice.login(this.form.value).subscribe((requiestInfo) => {
+    this.authSevice.login(this.form.value).subscribe({
+      
       next: () => {
         this.router.navigate(['/']);
       },

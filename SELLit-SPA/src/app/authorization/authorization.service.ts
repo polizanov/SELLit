@@ -5,6 +5,7 @@ import { IUserRegister } from "../shared/interfaces/auth/IUserRegister"
 import { IUserLogin } from "../shared/interfaces/auth/IUserLogin"
 import { environment } from "../../environments/environment"
 import { tap } from 'rxjs/operators';
+import { IError } from '../shared/interfaces/IError';
 
 const { apiURL } = environment;
 
@@ -49,7 +50,7 @@ export class AuthorizationService {
   }
 
   login(data: IUserLogin) {
-    return this.httpClient.post<IUser>(`${apiURL}/auth/login`, data).pipe(
+    return this.httpClient.post<any>(`${apiURL}/auth/login`, data).pipe(
       tap((user: IUser) => {
         this.setToken("sessionToken", user.sessionToken);
         this.setToken("username", user.username);

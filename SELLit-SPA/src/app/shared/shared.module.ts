@@ -3,12 +3,14 @@ import { CommonModule } from '@angular/common';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { AuthorizationGuard } from './guards/authorization.guard';
 import { HomeAccessGuard } from './guards/home-access.guard';
+import { NotificationComponent } from './notification/notification.component';
 
 
 
 @NgModule({
   declarations: [
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    NotificationComponent
   ],
   imports: [
     CommonModule
@@ -18,7 +20,8 @@ import { HomeAccessGuard } from './guards/home-access.guard';
     HomeAccessGuard
   ],
   exports: [
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    NotificationComponent
   ]
 })
 export class SharedModule { }

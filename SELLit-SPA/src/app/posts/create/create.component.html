@@ -1,24 +1,89 @@
 <!-- Share Products Page -->
 <section id="share-product-page">
-    <form id="share">
+    <form [formGroup]="form" id="share" (ngSubmit)="createPost()">
         <div class="share-container">
             <h1>Share Product</h1>
+
+            <div *ngIf="error" class="error">
+                <p>{{error.error.message}}</p>
+            </div>
+
             <label for="name">Name</label>
-            <input id="name" placeholder="Enter Name..." name="name" type="text">
+            <input formControlName="name" id="name" placeholder="Enter Name..." name="name" type="text">
+            <ng-container *ngIf="form.get('name')?.touched">
+                <p class="error" *ngIf="form.get('name')?.errors?.required">
+                    Name is required!
+                </p>
+                <p class="error" *ngIf="form.get('name')?.errors?.minlength">
+                    Name should be at least 4 charecters!
+                </p>
+            </ng-container>
+
             <label for="imageUrl">Image URL</label>
-            <input id="iamgeUrl" placeholder="Paste Image Url..." name="imageUrl" type="text">
+            <input formControlName="imageUrl" id="iamgeUrl" placeholder="Paste Image Url..." name="imageUrl" type="text">
+            <ng-container *ngIf="form.get('imageUrl')?.touched">
+                <p class="error" *ngIf="form.get('imageUrl')?.errors?.required">
+                    Image URL is required!
+                </p>
+                <p class="error" *ngIf="form.get('imageUrl')?.errors?.minlength">
+                    Image URL should be at least 4 charecters!
+                </p>
+                <p class="error" *ngIf="form.get('imageUrl')?.errors?.pattern">
+                    Invalid Image URL!
+                </p>
+            </ng-container>
+
             <label for="description">Description</label>
-            <textarea id="description" placeholder="Say something about your product..."
-                name="description"></textarea>
+            <textarea formControlName="description" id="description" placeholder="Say something about your product..." name="description"></textarea>
+            <ng-container *ngIf="form.get('description')?.touched">
+                <p class="error" *ngIf="form.get('description')?.errors?.required">
+                    Description is required!
+                </p>
+                <p class="error" *ngIf="form.get('description')?.errors?.minlength">
+                    Description should be at least 8 charecters!
+                </p>
+            </ng-container>
+
+
             <label for="condition">Condition: </label>
-            <select id="condition">
+            <select formControlName="condition" id="condition">
                 <option value="New">New</option>
                 <option value="Used">Used</option>
             </select>
+            <ng-container *ngIf="form.get('condition')?.touched">
+                <p class="error" *ngIf="form.get('description')?.errors?.required">
+                    Condition is required!
+                </p>
+            </ng-container>
+            
             <label for="price">Price</label>
-            <input id="price" placeholder="Enter Price..." name="price" type="number">
+            <input formControlName="price" id="price" placeholder="Enter Price..." name="price" type="number">
+            <ng-container *ngIf="form.get('price')?.touched">
+                <p class="error" *ngIf="form.get('price')?.errors?.required">
+                    Price is required!
+                </p>
+                <p class="error" *ngIf="form.get('price')?.errors?.pattern">
+                    Invalid Price!
+                </p>
+            </ng-container>
+           
             <label for="phone">Phone number</label>
-            <input id="phone" placeholder="Enter phone number..." name="phone" type="text">
+            <input formControlName="phone" id="phone" placeholder="Enter phone number..." name="phone" type="text">
+            <ng-container *ngIf="form.get('phone')?.touched">
+                <p class="error" *ngIf="form.get('phone')?.errors?.required">
+                    Phone is required!
+                </p>
+                <p class="error" *ngIf="form.get('phone')?.errors?.minlength">
+                    Phone should be at least 5 charecters!
+                </p>
+                <p class="error" *ngIf="form.get('phone')?.errors?.maxLength">
+                    Phone cannot be more than 14 charecters!
+                </p>
+                <p class="error" *ngIf="form.get('phone')?.errors?.pattern">
+                    Invalid Phone!
+                </p>
+            </ng-container>
+
             <input type="submit" class="button" value="Share">
         </div>
     </form>

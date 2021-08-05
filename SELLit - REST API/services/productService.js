@@ -12,7 +12,8 @@ async function create(bodyData, userId) {
     let data = [name, imageUrl, description, condition, price, phone]
         .map(x => {
             if (x) {
-                return x.trim();
+                console.log(x)
+                return x.toString().trim();
             }
 
             return " "
@@ -22,8 +23,12 @@ async function create(bodyData, userId) {
         throw { message: "All fields are required!" }
     }
 
-    if (data[0].length < 4 || data[1].length < 4) {
-        throw { message: "Name and ImageUrl must be at least 4 characters!" }
+    if (data[0].length < 4) {
+        throw { message: "Name must be at least 4 characters!" }
+    }
+
+    if (data[1].length < 10) {
+        throw { message: "ImageUrl must be at least 10 characters!" }
     }
 
     if (!IMAGE_URL_PATTERN.test(data[1])) {
@@ -81,9 +86,14 @@ async function edit(bodyData, userId, productId) {
         throw { message: "All fields are required!" }
     }
 
-    if (data[0].length < 4 || data[1].length < 4) {
-        throw { message: "Name and ImageUrl must be at least 4 characters!" }
+    if (data[0].length < 4) {
+        throw { message: "Name must be at least 4 characters!" }
     }
+
+    if (data[1].length < 10) {
+        throw { message: "ImageUrl must be at least 10 characters!" }
+    }
+
 
     if (!IMAGE_URL_PATTERN.test(data[1])) {
         throw { message: "Invalid ImageUrl" }

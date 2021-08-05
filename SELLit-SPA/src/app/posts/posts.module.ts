@@ -7,8 +7,9 @@ import { EditComponent } from './edit/edit.component';
 import { PostsRoutingModule } from './posts-routing.module';
 
 import { SharedModule } from '../shared/shared.module';
-import { GeneratePostService } from './service/generate-post.service';
+import { PostService } from './service/post.service';
 import { HttpClient } from '@angular/common/http';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 
@@ -21,11 +22,12 @@ import { HttpClient } from '@angular/common/http';
   ],
   imports: [
     PostsRoutingModule,
+    ReactiveFormsModule,
     CommonModule,
     SharedModule,
   ],
   providers: [
-    GeneratePostService,
+    PostService,
   ]
 })
 export class PostsModule { }

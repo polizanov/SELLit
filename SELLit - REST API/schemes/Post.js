@@ -30,7 +30,7 @@ const postSchema = new mongoose.Schema({
     phone: {
         type: String,
         requred: true,
-        minLength: 10,
+        minLength: 5,
         maxLength: 14,
         validate: /^([0-9|+]+)$/
     },

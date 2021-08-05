@@ -4,15 +4,20 @@ import { Observable } from 'rxjs';
 
 import { IPost } from "../../shared/interfaces/IPost"
 import { environment } from "../../../environments/environment"
+import { IResponce } from 'src/app/shared/interfaces/IRestRespoce';
 const { apiURL } = environment;
 
 
 @Injectable()
-export class GeneratePostService {
+export class PostService {
 
   constructor(
     private httpClient: HttpClient,
   ) { }
+
+  get token(): any {
+    return localStorage.getItem("sessionToken")
+  }
 
   loadPosts(): Observable<IPost[]> {
     return this.httpClient.get<IPost[]>(`${apiURL}/all-products`)
@@ -20,5 +25,11 @@ export class GeneratePostService {
 
   loadPostById(id: string): Observable<IPost> {
     return this.httpClient.get<IPost>(`${apiURL}/details/${id}`)
+  }
+
+  sentPost(data: IPost) {
+    return this.httpClient.post<IResponce>(`${apiURL}/create-product`, data, { headers: {
+      "sessionToken": this.token
+    }})
   }
 }

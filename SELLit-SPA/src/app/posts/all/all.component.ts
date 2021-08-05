@@ -1,5 +1,5 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { GeneratePostService } from '../service/generate-post.service';
+import { PostService } from '../service/post.service';
 
 import { IPost } from "../../shared/interfaces/IPost"
 import { AuthorizationService } from 'src/app/authorization/authorization.service';
@@ -14,7 +14,7 @@ export class AllComponent {
   posts: IPost[] | null = null;
 
   constructor(
-    private generatePosts: GeneratePostService,
+    private generatePosts: PostService,
     private authService: AuthorizationService
   ) {
     this.generatePosts.loadPosts().subscribe(posts => this.posts = posts)

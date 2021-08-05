@@ -1,5 +1,5 @@
-export interface IUserRegister {
-    username: string,
+import { IUserLogin } from "./IUserLogin"
+
+export interface IUserRegister extends IUserLogin {
     email: string,
-    password: string
 }

@@ -1,13 +1,31 @@
 <!-- Login Page -->
 <section id="login-page">
-    <form id="login">
+    <form [formGroup]="form" id="login" (ngSubmit)="login()">
         <div class="auth-container">
             <h1>Login Page</h1>
-            <label for="email">Email</label>
-            <input id="email" placeholder="Enter Email..." name="email" type="text">
+            <label for="username">Username</label>
+            <input formControlName="username" id="username" placeholder="Enter Username..." name="username" type="text">
+            <ng-container *ngIf="form.get('username')?.touched">
+                <p class="error" *ngIf="form.get('username')?.errors?.required">
+                    Username is required!
+                </p>
+                <p class="error" *ngIf="form.get('username')?.errors?.minlength">
+                    Username should be at least 4 charecters!
+                </p>
+            </ng-container>
+
             <label for="password">Password</label>
-            <input id="password" type="password" placeholder="Enter Password..." name="password">
-            <input (click)="login()" type="submit" class="authbtn button" value="Login">
+            <input formControlName="password" id="password" type="password" placeholder="Enter Password..." name="password">
+            <ng-container *ngIf="form.get('password')?.touched">
+                <p class="error" *ngIf="form.get('password')?.errors?.required">
+                    Password is required!
+                </p>
+                <p class="error" *ngIf="form.get('password')?.errors?.minlength">
+                    Password should be at least 4 charecters!
+                </p>
+            </ng-container>
+
+            <input type="submit" class="authbtn button" value="Login">
             <div class="container login">
                 <p>Don't have an account?<a routerLink="/register">Sign up</a> now!</p>
             </div>

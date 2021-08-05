@@ -6,10 +6,10 @@
             <label for="username">Username</label>
             <input formControlName="username" id="username" placeholder="Enter Username..." name="username" type="text">
             <ng-container *ngIf="form.get('username')?.touched">
-                ` <p *ngIf="form.get('username')?.errors?.required" class="error">
+                ` <p class="error" *ngIf="form.get('username')?.errors?.required">
                     Username is required!
                 </p>
-                <p *ngIf="form.get('username')?.errors?.minlength" class="error">
+                <p class="error" *ngIf="form.get('username')?.errors?.minlength">
                     Username should be at least 4 charecters!
                 </p>
             </ng-container>
@@ -19,10 +19,10 @@
             <label for="email">Email</label>
             <input formControlName="email" id="email" placeholder="Enter Email..." name="email" type="text">
             <ng-container *ngIf="form.get('email')?.touched">
-                <p *ngIf="form.get('email')?.errors?.required" class="error">
+                <p class="error" *ngIf="form.get('email')?.errors?.required">
                     Email is required!
                 </p>
-                <p *ngIf="form.get('email')?.errors?.invalidEmail" class="error">
+                <p class="error" *ngIf="form.get('email')?.errors?.invalidEmail">
                     Invalid Email!
                 </p>
             </ng-container>
@@ -31,10 +31,10 @@
             <label for="password">Password</label>
             <input formControlName="password" id="password" type="password" placeholder="Enter Password..." name="password">
             <ng-container *ngIf="form.get('password')?.touched">
-                <p *ngIf="form.get('password')?.errors?.required" class="error">
+                <p class="error" *ngIf="form.get('password')?.errors?.required">
                     Password is required!
                 </p>
-                <p *ngIf="form.get('password')?.errors?.minlength" class="error">
+                <p class="error" *ngIf="form.get('password')?.errors?.minlength">
                     Password must be at least 4 characters!
                 </p>
             </ng-container>
@@ -43,10 +43,10 @@
             <label for="repeatPassword">Repeat Password</label>
             <input formControlName="repeatPassword" id="repeatPassword" type="password" placeholder="Enter Repeat Password..." name="repeatPassword">
             <ng-container *ngIf="form.get('repeatPassword')?.touched">
-                <p *ngIf="form.get('repeatPassword')?.errors?.required" class="error">
+                <p class="error" *ngIf="form.get('repeatPassword')?.errors?.required">
                     Repeat Password is required!
                 </p>
-                <p *ngIf="form.get('repeatPassword')?.errors?.isIncorect" class="error">
+                <p class="error" *ngIf="form.get('repeatPassword')?.errors?.isIncorect">
                     Repeat Password and Password does not match!
                 </p>
             </ng-container>

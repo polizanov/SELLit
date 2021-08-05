@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { IUser } from '../shared/interfaces/auth/IUser';
 import { IUserRegister } from "../shared/interfaces/auth/IUserRegister"
+import { IUserLogin } from "../shared/interfaces/auth/IUserLogin"
 import { environment } from "../../environments/environment"
 import { tap } from 'rxjs/operators';
 
@@ -38,6 +39,17 @@ export class AuthorizationService {
 
   register(data: IUserRegister) {
     return this.httpClient.post<IUser>(`${apiURL}/auth/register`, data).pipe(
+      tap((user: IUser) => {
+        this.setToken("sessionToken", user.sessionToken);
+        this.setToken("username", user.username);
+        this.setToken("email", user.email);
+        this.setToken("_id", user.objectId);
+      })
+    )
+  }
+
+  login(data: IUserLogin) {
+    return this.httpClient.post<IUser>(`${apiURL}/auth/login`, data).pipe(
       tap((user: IUser) => {
         this.setToken("sessionToken", user.sessionToken);
         this.setToken("username", user.username);

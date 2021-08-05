@@ -41,6 +41,7 @@ export class RegisterComponent implements OnDestroy {
       },
       error: (err) => {
         this.authSevice.clearLocalStorage();
+        this.router.navigate(["/"]);
       }
     })
   }

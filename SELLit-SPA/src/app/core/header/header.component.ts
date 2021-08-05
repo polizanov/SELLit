@@ -22,6 +22,10 @@ export class HeaderComponent {
     return this.authService.username
   }
 
+  userId(): string {
+    return this.authService.id
+  }
+
   logout(): void {
     this.authService.logout().subscribe({
       next: () => {

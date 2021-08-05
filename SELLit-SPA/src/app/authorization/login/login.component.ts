@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { AuthorizationService } from '../authorization.service';
 
 @Component({
@@ -8,12 +10,35 @@ import { AuthorizationService } from '../authorization.service';
 })
 export class LoginComponent {
 
-  constructor(
-    private authService: AuthorizationService
-  ) { }
+  form: FormGroup;
 
-  public login(): void {
-    // this.authService.setToken("user-logged")
+  constructor(
+    private formBuilder: FormBuilder,
+    private authSevice: AuthorizationService,
+    private router: Router,
+  ) {
+    this.form = this.formBuilder.group({
+      username: ["", [Validators.required, Validators.minLength(4)]],
+      password: ["", [Validators.required, Validators.minLength(4)]]
+    })
   }
+
+  login(): void {
+    if(this.form.invalid) {
+      return;
+    }
+
+    this.authSevice.login(this.form.value).subscribe((requiestInfo) => {
+      next: () => {
+        this.router.navigate(['/']);
+      },
+      error: () => {
+        this.authSevice.clearLocalStorage();
+        this.router.navigate(['/login']);
+        
+      }
+    })
+  }
+
 
 }

@@ -3,6 +3,9 @@
     <form [formGroup]="form" id="login" (ngSubmit)="login()">
         <div class="auth-container">
             <h1>Login Page</h1>
+            <p *ngIf="error">
+                {{error.error.message}}
+            </p>
             <label for="username">Username</label>
             <input formControlName="username" id="username" placeholder="Enter Username..." name="username" type="text">
             <ng-container *ngIf="form.get('username')?.touched">

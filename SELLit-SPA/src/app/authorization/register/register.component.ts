@@ -14,6 +14,7 @@ export class RegisterComponent implements OnDestroy {
 
   removeSubscription = new Subject();
   form: FormGroup;
+  error: any;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -31,7 +32,7 @@ export class RegisterComponent implements OnDestroy {
   }
 
   register(): void {
-    if(this.form.invalid) {
+    if (this.form.invalid) {
       return;
     }
 
@@ -39,10 +40,12 @@ export class RegisterComponent implements OnDestroy {
       next: () => {
         this.router.navigate(["/"])
       },
-      error: (err) => {
+      error: (error: any) => {
+        this.error = error;
         this.authSevice.clearLocalStorage();
-        this.router.navigate(["/"]);
+        this.router.navigate(['/register']);
       }
+
     })
   }
 

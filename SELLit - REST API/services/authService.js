@@ -19,10 +19,17 @@ async function createUser(data) {
         throw { message: "Invalid Email!" }
     }
 
-    let user = await User.findOne({ username: username.toLowerCase().trim() })
+    let [findUser, findEmail] = await Promise.all([
+        User.findOne({ username: username.toLowerCase().trim() }),
+        User.findOne({ email: email.toLowerCase().trim() })
+    ])
 
-    if (user) {
+    if (findUser) {
         throw { message: "User exist!" }
+    }
+
+    if(findEmail) {
+        throw { message: "User with current email exist!" }
     }
 
     const hash = bcrypt.hashSync(password.trim(), SALT_ROUNDS);

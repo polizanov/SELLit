@@ -1,9 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { IError } from 'src/app/shared/interfaces/err';
 import { AuthorizationService } from '../authorization.service';
-
-// import {IError} from "../../shared/interfaces/IError"
 
 @Component({
   selector: 'app-login',
@@ -14,7 +13,7 @@ export class LoginComponent {
 
   form: FormGroup;
   
-  errorMessage: string | undefined;
+  error: any;
   
 
   constructor(
@@ -38,10 +37,10 @@ export class LoginComponent {
       next: () => {
         this.router.navigate(['/']);
       },
-      error: () => {
+      error: (error: any ) => {
+        this.error = error;
         this.authSevice.clearLocalStorage();
         this.router.navigate(['/login']);
-        
       }
     })
   }

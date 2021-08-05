@@ -1,6 +1,6 @@
 export interface ICreator {
     _id: string,
-    likes: string[],
+    likes: any,
     username: string,
     email: string,
 }

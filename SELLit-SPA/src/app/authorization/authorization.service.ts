@@ -5,7 +5,7 @@ import { IUserRegister } from "../shared/interfaces/auth/IUserRegister"
 import { IUserLogin } from "../shared/interfaces/auth/IUserLogin"
 import { environment } from "../../environments/environment"
 import { tap } from 'rxjs/operators';
-import { IError } from '../shared/interfaces/IError';
+//import { IError } from '../shared/interfaces/IError';
 
 const { apiURL } = environment;
 

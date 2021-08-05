@@ -131,8 +131,14 @@ function getOne(productId) {
         
 }
 
-function getProfile(userId) {
-    return Post.findOne({ creator: userId });
+function getProfilePosts(profileId) {
+    return Promise.all([
+        User.findOne({_id: profileId}).select("email").select("username").select("likes"),
+        Post.find({ creator: profileId })
+    ])
+    .then(([profileInfo, products]) => {
+       return Object.assign({profileInfo, products})
+    })
 }
 
 module.exports = {
@@ -141,5 +147,5 @@ module.exports = {
     edit,
     deleteOne,
     getOne,
-    getProfile,
+    getProfilePosts,
 }

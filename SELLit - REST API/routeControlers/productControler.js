@@ -55,9 +55,9 @@ router.get("/details/:productId", async (req, res) => {
     }
 })
 
-router.get("/my-profile", isAuth, async (req, res) => {
+router.get("/profile/:profileId", async (req, res) => {
     try {
-        let data = await productService.getProfile(res.locals.user.id);
+        let data = await productService.getProfilePosts(req.params.profileId);
         res.status(201).json(data);
     } catch (err) {
         console.log(err)

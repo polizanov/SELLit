@@ -3,7 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthorizationService } from '../authorization.service';
 
-import {IError} from "../../shared/interfaces/IError"
+// import {IError} from "../../shared/interfaces/IError"
 
 @Component({
   selector: 'app-login',

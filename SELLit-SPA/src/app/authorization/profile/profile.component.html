@@ -1,21 +1,20 @@
 <!-- Profile Page -->
 
-    <div class="profile-container">
+    <div class="profile-container" *ngIf="user">
         <h1>Profile Page</h1>
         <div class="profile-info">
             <img src="../../../assets/images/356-3562377_personal-user.png"
                 alt="profile-photo">
             <div id="user-data">
-                <p>Email: --email--</p>
-                <p>Username: --username--</p>
-                <p>My post count: --num post--</p>
-                <p>My favourite post count: --num post--</p>
+                <p>Email: {{user.profileInfo.email}}</p>
+                <p>Username: {{user.profileInfo.username}}</p>
+                <p>My post count: {{user.products.length}}</p>
             </div>
         </div>
 
-        <h1>My posts</h1>
-
-        <div class="top-header">
+    
+        <div *ngIf="!(user.products.length === 0)" class="top-header">
+            <h1>My posts</h1>
             <div class="product-wrap">
                 <div class="refactoring">
                     <div class="product-body">
@@ -113,7 +112,7 @@
             </div>
     </div>
     
-    <div class="no-data">
+    <div *ngIf="user.products.length === 0" class="no-data">
         <div class="no-data-wrapper">
             <h1>Looks like there are no products yet!</h1>
             <h2>Add the first one?</h2>

@@ -6,6 +6,10 @@ const userSchema = new mongoose.Schema({
         requred: true,
         minLength: 4
     },
+    profileImg: {
+        type: String,
+        validate: /^([0-9|+]+)$/
+    },
     username: {
         type: String,
         requred: true,

@@ -3,10 +3,11 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 import { IPost } from "../../shared/interfaces/IPost"
+import { environment } from "../../../environments/environment"
+const { apiURL } = environment;
 
-@Injectable({
-  providedIn: 'root'
-})
+
+@Injectable()
 export class GeneratePostService {
 
   constructor(
@@ -14,10 +15,10 @@ export class GeneratePostService {
   ) { }
 
   loadPosts(): Observable<IPost[]> {
-    return this.httpClient.get<IPost[]>('http://localhost:3000/all-products')
+    return this.httpClient.get<IPost[]>(`${apiURL}/all-products`)
   }
 
   loadPostById(id: string): Observable<IPost> {
-    return this.httpClient.get<IPost>(`http://localhost:3000/details/${id}`)
+    return this.httpClient.get<IPost>(`${apiURL}/details/${id}`)
   }
 }

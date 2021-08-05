@@ -1,15 +1,25 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { UserService } from './user.service';
+
+import {IProfile} from "../../shared/interfaces/profile/IProfile"
 
 @Component({
   selector: 'app-profile',
   templateUrl: './profile.component.html',
   styleUrls: ['./profile.component.css']
 })
-export class ProfileComponent implements OnInit {
+export class ProfileComponent {
 
-  constructor() { }
+  user: IProfile | null = null
 
-  ngOnInit(): void {
+  constructor(
+    private activateRoute: ActivatedRoute,
+    private userService: UserService,
+  ) {
+    let id = this.activateRoute.snapshot.params.profileId;
+    this.userService.loadProfileById(id).subscribe(user => {console.log(user.products); this.user = user})
   }
+
 
 }

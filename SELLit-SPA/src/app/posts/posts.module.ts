@@ -8,8 +8,8 @@ import { PostsRoutingModule } from './posts-routing.module';
 
 import { SharedModule } from '../shared/shared.module';
 import { PostService } from './service/post.service';
-import { HttpClient } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
+import { DeleteComponent } from './delete/delete.component';
 
 
 
@@ -18,7 +18,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     AllComponent,
     DetailsComponent,
     CreateComponent,
-    EditComponent
+    EditComponent,
+    DeleteComponent
   ],
   imports: [
     PostsRoutingModule,

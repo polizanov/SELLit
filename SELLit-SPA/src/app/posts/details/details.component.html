@@ -13,7 +13,7 @@
             <p id="price">Only for: <span>{{post.price}}</span> lv.</p>
             <div class="buttons">
                 <a *ngIf="id == post.creator._id" [routerLink]="['/edit', post._id]" id="edit">Edit</a>
-                <a *ngIf="id == post.creator._id" href="#" id="delete">Delete</a>
+                <a *ngIf="id == post.creator._id" (click)="deletePost(post._id)" id="delete">Delete</a>
                 <!-- <a href="#" id="interest">Add to Favourite Tab</a>
                 <a href="#" id="interest-alerady">Already added to the Favourite Tab</a> -->
                 <!-- <p *ngIf="post.creator.likes.length > 0">Hurry up! <span>--num of people-- people</span> are interested in this product!</p> -->

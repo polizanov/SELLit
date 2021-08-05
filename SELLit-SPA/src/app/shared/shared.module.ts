@@ -7,6 +7,7 @@ import { NotificationComponent } from './notification/notification.component';
 
 
 
+
 @NgModule({
   declarations: [
     PageNotFoundComponent,
@@ -17,7 +18,7 @@ import { NotificationComponent } from './notification/notification.component';
   ], 
   providers: [
     AuthorizationGuard,
-    HomeAccessGuard
+    HomeAccessGuard,
   ],
   exports: [
     PageNotFoundComponent,

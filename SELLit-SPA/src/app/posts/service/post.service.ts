@@ -38,4 +38,11 @@ export class PostService {
       "sessionToken": this.token
     }})
   }
+
+  deletePost(id: string) {
+    return this.httpClient.delete<IResponce>(`${apiURL}/delete-product/${id}`, { headers: {
+      "sessionToken": this.token
+    }})
+
+  }
 }

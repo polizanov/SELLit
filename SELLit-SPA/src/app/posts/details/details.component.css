@@ -113,8 +113,10 @@
     padding-left: 5%;
     font-size: 25px;
     box-shadow: -6px 7px 25px 0px #000000, 9px -8px 31px -12px rgb(0 0 0 / 0%);
+    margin-top: 3%;
     margin-left: 14%;
     margin-right: 46%;
+    margin-bottom: 3%;
     border: 3px solid orange;
     background-color: rgb(253, 207, 121);
     border-radius: 37px;
@@ -124,4 +126,54 @@ h1 {
     text-align: center;
     color:rgb(241, 189, 110);
     font-size: 40px;
+}
+
+#username {
+    color: rgb(235, 143, 6);
+}
+
+.wrap {
+    display: flex;
+}  
+
+.wrap a {
+    margin-top: 6%;
+    margin-left: 15%;
+
+    
+    margin-top: 6%;
+    margin-left: 12%;
+    color: rgb(241, 189, 110);
+    background-color: white;
+    border-color: rgb(241, 189, 110);
+    display: inline-block;
+    text-decoration: none;
+    cursor: pointer;
+    border: 1px;
+    padding: 0.375rem 1rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    border-radius: 1.05rem;
+    height: 2%;
+}
+
+.wrap a:hover {
+    margin-top: 6%;
+    margin-left: 15%;
+
+    
+    margin-top: 6%;
+    margin-left: 12%;
+    color: white;
+    background-color: rgb(255, 153, 0);;
+    border-color: rgb(241, 189, 110);
+    display: inline-block;
+    text-decoration: none;
+    cursor: pointer;
+    border: 1px;
+    padding: 0.375rem 1rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    border-radius: 1.05rem;
+    height: 2%;
 }

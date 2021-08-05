@@ -8,104 +8,24 @@
             <div id="user-data">
                 <p>Email: {{user.profileInfo.email}}</p>
                 <p>Username: {{user.profileInfo.username}}</p>
-                <p>My post count: {{user.products.length}}</p>
+                <p>Post count: {{user.products.length}}</p>
             </div>
         </div>
 
+        <h1 *ngIf="!(user.products.length === 0)">Posts</h1>
     
         <div *ngIf="!(user.products.length === 0)" class="top-header">
-            <h1>My posts</h1>
-            <div class="product-wrap">
+            <div *ngFor="let product of user.products" class="product-wrap">
                 <div class="refactoring">
                     <div class="product-body">
-                        <img src="../../../assets/images/0000199234026_creole-k10318_czarny_czerwony_ai_1.jpg"
+                        <img src={{product.imageUrl}}
                             alt="product-photo">
-                        <p>--Paste desciption here--</p>
+                        <p>{{product.description}}</p>
                         <footer>
-                            <p>Only for: <span>999 lv</span></p>
+                            <p>Only for: <span>{{product.price}} lv</span></p>
                         </footer>
                         <div id="see-more-wrap">
-                            <a href="#" class="details">See More</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="product-wrap">
-                <div class="refactoring">
-                    <div class="product-body">
-                        <img src="../../../assets/images/0000199234026_creole-k10318_czarny_czerwony_ai_1.jpg"
-                            alt="product-photo">
-                        <p>--Paste desciption here--</p>
-                        <footer>
-                            <p>Only for: <span>999 lv</span></p>
-                        </footer>
-                        <div id="see-more-wrap">
-                            <a href="#" class="details">See More</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="product-wrap">
-                <div class="refactoring">
-                    <div class="product-body">
-                        <img src="../../../assets/images/0000199234026_creole-k10318_czarny_czerwony_ai_1.jpg"
-                            alt="product-photo">
-                        <p>--Paste desciption here--</p>
-                        <footer>
-                            <p>Only for: <span>999 lv</span></p>
-                        </footer>
-                        <div id="see-more-wrap">
-                            <a href="#" class="details">See More</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="product-wrap">
-                <div class="refactoring">
-                    <div class="product-body">
-                        <img src="../../../assets/images/0000199234026_creole-k10318_czarny_czerwony_ai_1.jpg"
-                            alt="product-photo">
-                        <p>--Paste desciption here--</p>
-                        <footer>
-                            <p>Only for: <span>999 lv</span></p>
-                        </footer>
-                        <div id="see-more-wrap">
-                            <a href="#" class="details">See More</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="product-wrap">
-                <div class="refactoring">
-                    <div class="product-body">
-                        <img src="../../../assets/images/0000199234026_creole-k10318_czarny_czerwony_ai_1.jpg"
-                            alt="product-photo">
-                        <p>--Paste desciption here--</p>
-                        <footer>
-                            <p>Only for: <span>999 lv</span></p>
-                        </footer>
-                        <div id="see-more-wrap">
-                            <a href="#" class="details">See More</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="product-wrap">
-                <div class="refactoring">
-                    <div class="product-body">
-                        <img src="../../../assets/images/0000199234026_creole-k10318_czarny_czerwony_ai_1.jpg"
-                            alt="product-photo">
-                        <p>--Paste desciption here--</p>
-                        <footer>
-                            <p>Only for: <span>999 lv</span></p>
-                        </footer>
-                        <div id="see-more-wrap">
-                            <a href="#" class="details">See More</a>
+                            <a [routerLink]="['/details', product._id]" class="details">See More</a>
                         </div>
                     </div>
                 </div>

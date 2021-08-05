@@ -32,4 +32,10 @@ export class PostService {
       "sessionToken": this.token
     }})
   }
+
+  editPost(data: IPost, id: string) {
+    return this.httpClient.put<IResponce>(`${apiURL}/edit-product/${id}`, data, { headers: {
+      "sessionToken": this.token
+    }})
+  }
 }

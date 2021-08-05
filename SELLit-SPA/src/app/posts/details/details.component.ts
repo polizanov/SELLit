@@ -15,10 +15,15 @@ export class DetailsComponent {
 
   constructor(
     private generatePosts: PostService,
+    private authService: AuthorizationService,
     private activateRoute: ActivatedRoute,
   ) { 
     let id = this.activateRoute.snapshot.params.productId;
-    this.generatePosts.loadPostById(id).subscribe(post =>{this.post = post, console.log(post)})
+    this.generatePosts.loadPostById(id).subscribe(post => this.post = post)
+  }
+
+  get id(): any {
+    return this.authService.id
   }
 
 }

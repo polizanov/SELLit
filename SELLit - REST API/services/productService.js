@@ -76,7 +76,7 @@ async function edit(bodyData, userId, productId) {
     let data = [name, imageUrl, description, condition, price, phone]
         .map(x => {
             if (x) {
-                return x.trim();
+                return x.toString().trim();
             }
 
             return " "

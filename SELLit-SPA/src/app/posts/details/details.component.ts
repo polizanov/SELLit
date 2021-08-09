@@ -12,7 +12,7 @@ import { PostService } from '../service/post.service';
 })
 export class DetailsComponent {
 
-  post: IPost | null = null
+  post: IPost | null = null;
 
   
 
@@ -23,7 +23,7 @@ export class DetailsComponent {
     private router: Router,
   ) { 
     let id = this.activateRoute.snapshot.params.productId;
-    this.postService.loadPostById(id).subscribe(post => this.post = post)
+    this.postService.loadPostById(id).subscribe(post => {this.post = post; console.log(post)})
   }
 
   get id(): any {

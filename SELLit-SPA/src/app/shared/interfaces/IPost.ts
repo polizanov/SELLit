@@ -2,6 +2,7 @@ import { ICreator } from "./ICreator"
 
 export interface IPost {
     _id: string,
+    likes: string[];
     name: string,
     imageUrl: string,
     description: string,

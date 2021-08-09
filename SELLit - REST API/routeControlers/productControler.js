@@ -60,8 +60,28 @@ router.get("/profile/:profileId", async (req, res) => {
         let data = await productService.getProfilePosts(req.params.profileId);
         res.status(201).json(data);
     } catch (err) {
-        console.log(err)
-        res.status(400).json({ message: err.message })
+        console.log(err);
+        res.status(400).json({ message: err.message });
+    }
+})
+
+router.get("/like/:productId", isAuth, async (req, res) => {
+    try {
+        await productService.likePost(req.params.productId, res.locals.user.id);
+        res.status(201).json({ message: "Created" });
+    } catch (err) {
+        console.log(err);
+        res.status(400).json({ message: err.message });
+    }
+})
+
+router.get("/my-favourite-posts", isAuth, async (req, res) => {
+    try {
+        let data = await productService.getMyFavouritePost(res.locals.user.id);
+        res.status(200).json(data);
+    } catch (err) {
+        console.log(err);
+        res.status(400).json({ message: err.message });
     }
 })
 

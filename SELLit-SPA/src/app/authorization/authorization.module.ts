@@ -8,6 +8,7 @@ import { RouterModule } from '@angular/router';
 import { AuthorizationService } from './authorization.service';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NotificationComponent } from '../shared/notification/notification.component';
+import { MyFavouriteComponent } from './my-favourite/my-favourite.component';
 
 
 
@@ -16,6 +17,7 @@ import { NotificationComponent } from '../shared/notification/notification.compo
     LoginComponent,
     RegisterComponent,
     ProfileComponent,
+    MyFavouriteComponent,
   ],
   imports: [
     CommonModule,

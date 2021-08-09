@@ -137,18 +137,42 @@ async function deleteOne(userId, productId) {
 
 function getOne(productId) {
     return Post.findOne({ _id: productId })
-        .populate({path: "creator", select: ["email", "username", "likes"]})
-        
+        .populate({ path: "creator", select: ["email", "username", "likes"] })
+
 }
 
 function getProfilePosts(profileId) {
     return Promise.all([
-        User.findOne({_id: profileId}).select("email").select("username").select("likes"),
+        User.findOne({ _id: profileId }).select("email").select("username").select("likes"),
         Post.find({ creator: profileId })
     ])
-    .then(([profileInfo, products]) => {
-       return Object.assign({profileInfo, products})
-    })
+        .then(([profileInfo, products]) => {
+            return Object.assign({ profileInfo, products })
+        })
+}
+
+function getMyFavouritePost(profileId) {
+    return User.findOne({_id: profileId}).select("likedPosts").populate("likedPosts");
+}
+
+async function likePost(productId, userId) {
+    let [post, user] = await Promise.all([
+        Post.findOne({ _id: productId }),
+        User.findOne({ _id: userId })
+    ]);
+
+    if(user.likedPosts.includes(productId)){
+        throw {message: "Already liked"}
+    }
+
+    post.likes.push(userId);
+    user.likedPosts.push(productId);
+
+    return Promise.all([
+        Post.updateOne({ _id: productId }, post),
+        User.updateOne({ _id: userId }, user)
+    ]);
+
 }
 
 
@@ -160,4 +184,6 @@ module.exports = {
     deleteOne,
     getOne,
     getProfilePosts,
+    likePost,
+    getMyFavouritePost
 }

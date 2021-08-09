@@ -18,7 +18,11 @@ const userSchema = new mongoose.Schema({
     password: {
         type: String,
         requred: true
-    }
+    },
+    likedPosts: [{
+        type: mongoose.Types.ObjectId,
+        ref: "Post"
+    }]
 });
 
 module.exports = mongoose.model("User", userSchema);

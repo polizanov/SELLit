@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AuthorizationGuard } from '../shared/guards/authorization.guard';
 import { LoginComponent } from './login/login.component';
+import { MyFavouriteComponent } from './my-favourite/my-favourite.component';
 import { ProfileComponent } from './profile/profile.component';
 import { RegisterComponent } from './register/register.component';
 
@@ -36,6 +37,15 @@ const routes: Routes = [
             redirectUrl: "/login"
         }
     },
+    {
+        path: "my-favourite",
+        component: MyFavouriteComponent,
+        canActivate:[AuthorizationGuard],
+        data: {
+            isAuth: true,
+            redirectUrl: "/login"
+        }
+    }
 ];
 
 @NgModule({

@@ -3,4 +3,5 @@ export interface ICreator {
     likes: any,
     username: string,
     email: string,
+    profileImg: string | undefined;
 }

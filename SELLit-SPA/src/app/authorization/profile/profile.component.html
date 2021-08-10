@@ -3,12 +3,19 @@
     <div class="profile-container" *ngIf="user">
         <h1>Profile Page</h1>
         <div class="profile-info">
-            <img src="../../../assets/images/356-3562377_personal-user.png"
+            <ng-container *ngIf="user.profileInfo.profileImg">
+                <img src={{user.profileInfo.profileImg}}
                 alt="profile-photo">
+            </ng-container>
+            <ng-container *ngIf="!user.profileInfo.profileImg">
+                <img src="../../../assets/images/356-3562377_personal-user.png"
+                alt="profile-photo">
+            </ng-container>
             <div id="user-data">
                 <p>Email: {{user.profileInfo.email}}</p>
                 <p>Username: {{user.profileInfo.username}}</p>
                 <p>Post count: {{user.products.length}}</p>
+                <a *ngIf="isAuthor()" routerLink="/edit-profile" id="edit-profile">Edit Profile</a>
             </div>
         </div>
 

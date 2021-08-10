@@ -2,7 +2,7 @@ const User = require("../schemes/User");
 const validator = require("validator");
 const bcrypt = require("bcrypt");
 let jwt = require('jsonwebtoken');
-const { SALT_ROUNDS, JWT_SECRET } = require("../config")
+const { SALT_ROUNDS, JWT_SECRET, IMAGE_URL_PATTERN } = require("../config")
 
 async function createUser(data) {
     let { email, username, password } = data;
@@ -28,7 +28,7 @@ async function createUser(data) {
         throw { message: "User exist!" }
     }
 
-    if(findEmail) {
+    if (findEmail) {
         throw { message: "User with current email exist!" }
     }
 
@@ -83,7 +83,44 @@ async function login(data) {
     return { sessionToken: token, objectId: user._id, username: user.username, email: user.email }
 }
 
+async function editProfile(data, profileId) {
+    let { username, imageUrl } = data;
+
+    if (username == "" || imageUrl == "") {
+        throw { message: "All fields are required!" }
+    }
+
+    if (username.length < 4) {
+        throw { message: "ImageUrl must be at least 4 characters!" }
+    }
+
+    if (imageUrl.length < 10) {
+        throw { message: "ImageUrl must be at least 10 characters!" }
+    }
+
+    if (!IMAGE_URL_PATTERN.test(imageUrl)) {
+        throw { message: "Invalid ImageUrl" }
+    }
+
+    let user = await User.findOne({ _id: profileId })
+
+    if(!user) {
+        throw { message: "Invalid User" }
+    }
+
+    try {
+        await User.updateOne({_id: profileId}, {username, profileImg: imageUrl})
+    } catch {
+        throw {message: "Update profile error"}
+    }
+
+    let token = jwt.sign({ id: user._id, username }, JWT_SECRET);
+
+    return { sessionToken: token, objectId: user._id, username, email: user.email }
+}
+
 module.exports = {
     register,
     login,
+    editProfile
 }

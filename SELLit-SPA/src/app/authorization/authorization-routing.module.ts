@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AuthorizationGuard } from '../shared/guards/authorization.guard';
+import { EditProfileComponent } from './edit-profile/edit-profile.component';
 import { LoginComponent } from './login/login.component';
 import { MyFavouriteComponent } from './my-favourite/my-favourite.component';
 import { ProfileComponent } from './profile/profile.component';
@@ -26,7 +27,19 @@ const routes: Routes = [
         }
     },
     {
-        path: "profile",
+        path: "my-profile",
+        children: [{
+            path: ":profileId",
+            component: ProfileComponent
+        }],
+        canActivate:[AuthorizationGuard],
+        data: {
+            isAuth: true,
+            redirectUrl: "/login"
+        }
+    },
+    {
+        path: "user-profile",
         children: [{
             path: ":profileId",
             component: ProfileComponent
@@ -40,6 +53,15 @@ const routes: Routes = [
     {
         path: "my-favourite",
         component: MyFavouriteComponent,
+        canActivate:[AuthorizationGuard],
+        data: {
+            isAuth: true,
+            redirectUrl: "/login"
+        }
+    },
+    {
+        path: "edit-profile",
+        component: EditProfileComponent,
         canActivate:[AuthorizationGuard],
         data: {
             isAuth: true,

@@ -212,3 +212,32 @@ img {
     text-align: center;
     padding-bottom: 20px;
 }
+
+#edit-profile {
+    margin-left: -41%;
+    color: rgb(241, 189, 110);
+    background-color: white;
+    border-color: rgb(241, 189, 110);
+    text-decoration: none;
+    cursor: pointer;
+    border: 1px;
+    padding: 0.5rem 1rem;
+    line-height: 1.5;
+    border-radius: 1.05rem;
+    height: 0%;
+}
+
+
+#edit-profile:hover {
+    margin-left: -41%;
+    color: white;
+    background-color: rgb(255, 153, 0);
+    border-color: rgb(241, 189, 110);
+    text-decoration: none;
+    cursor: pointer;
+    border: 1px;
+    padding: 0.5rem 1rem;
+    line-height: 1.5;
+    border-radius: 1.05rem;
+    height: 0%;
+}

@@ -5,7 +5,8 @@ import { IUserRegister } from "../shared/interfaces/auth/IUserRegister"
 import { IUserLogin } from "../shared/interfaces/auth/IUserLogin"
 import { environment } from "../../environments/environment"
 import { tap } from 'rxjs/operators';
-//import { IError } from '../shared/interfaces/IError';
+import { IUserEdit } from '../shared/interfaces/auth/IUserEdit';
+
 
 const { apiURL } = environment;
 
@@ -30,10 +31,6 @@ export class AuthorizationService {
     return localStorage.getItem("username");
   }
 
-  get email(): any {
-    return localStorage.getItem("email");
-  }
-
   get id(): any {
     return localStorage.getItem("_id");
   }
@@ -43,7 +40,6 @@ export class AuthorizationService {
       tap((user: IUser) => {
         this.setToken("sessionToken", user.sessionToken);
         this.setToken("username", user.username);
-        this.setToken("email", user.email);
         this.setToken("_id", user.objectId);
       })
     )
@@ -54,7 +50,20 @@ export class AuthorizationService {
       tap((user: IUser) => {
         this.setToken("sessionToken", user.sessionToken);
         this.setToken("username", user.username);
-        this.setToken("email", user.email);
+        this.setToken("_id", user.objectId);
+      })
+    )
+  }
+
+  editProfile(data: IUserEdit) {
+    return this.httpClient.post<IUser>(`${apiURL}/auth/edit-profile`, data, {
+      headers: {
+        "sessionToken": this.token
+      }
+    }).pipe(
+      tap((user: IUser) => {
+        this.setToken("sessionToken", user.sessionToken);
+        this.setToken("username", user.username);
         this.setToken("_id", user.objectId);
       })
     )

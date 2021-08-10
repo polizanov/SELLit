@@ -8,7 +8,7 @@ const userSchema = new mongoose.Schema({
     },
     profileImg: {
         type: String,
-        validate: /^([0-9|+]+)$/
+        validate: /https?/
     },
     username: {
         type: String,

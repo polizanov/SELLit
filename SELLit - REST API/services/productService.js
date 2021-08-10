@@ -137,16 +137,16 @@ async function deleteOne(userId, productId) {
 
 function getOne(productId) {
     return Post.findOne({ _id: productId })
-        .populate({ path: "creator", select: ["email", "username", "likes"] })
+        .populate({ path: "creator", select: ["email", "username", "likes", "profileImg"] })
 
 }
 
 function getProfilePosts(profileId) {
     return Promise.all([
-        User.findOne({ _id: profileId }).select("email").select("username").select("likes"),
+        User.findOne({ _id: profileId }).select("email").select("username").select("likes").select("profileImg"),
         Post.find({ creator: profileId })
     ])
-        .then(([profileInfo, products]) => {
+    .then(([profileInfo, products]) => {
             return Object.assign({ profileInfo, products })
         })
 }

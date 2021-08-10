@@ -4,11 +4,10 @@ import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { ProfileComponent } from './profile/profile.component';
 import { AuthRoutingModule } from './authorization-routing.module';
-import { RouterModule } from '@angular/router';
 import { AuthorizationService } from './authorization.service';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { NotificationComponent } from '../shared/notification/notification.component';
+import {  ReactiveFormsModule } from '@angular/forms';
 import { MyFavouriteComponent } from './my-favourite/my-favourite.component';
+import { EditProfileComponent } from './edit-profile/edit-profile.component';
 
 
 
@@ -18,6 +17,7 @@ import { MyFavouriteComponent } from './my-favourite/my-favourite.component';
     RegisterComponent,
     ProfileComponent,
     MyFavouriteComponent,
+    EditProfileComponent,
   ],
   imports: [
     CommonModule,
@@ -26,7 +26,6 @@ import { MyFavouriteComponent } from './my-favourite/my-favourite.component';
   ],
   providers: [
     AuthorizationService,
-    NotificationComponent
   ]
 })
 export class AuthorizationModule { }

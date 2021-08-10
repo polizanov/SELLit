@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { UserService } from './user.service';
 
 import {IProfile} from "../../shared/interfaces/profile/IProfile"
+import { AuthorizationService } from '../authorization.service';
 
 @Component({
   selector: 'app-profile',
@@ -16,9 +17,19 @@ export class ProfileComponent {
   constructor(
     private activateRoute: ActivatedRoute,
     private userService: UserService,
+    private authSevice: AuthorizationService,
   ) {
     let id = this.activateRoute.snapshot.params.profileId;
-    this.userService.loadProfileById(id).subscribe(user => {console.log(user.products); this.user = user})
+    this.userService.loadProfileById(id).subscribe(user => {console.log(user); this.user = user})
+  }
+
+  id(): string {
+    return this.authSevice.id
+  }
+
+  isAuthor(): boolean {
+    if(!this.user) { return false }
+    return this.id() == this.user.profileInfo._id
   }
 
 

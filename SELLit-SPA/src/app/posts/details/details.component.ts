@@ -10,20 +10,25 @@ import { PostService } from '../service/post.service';
   templateUrl: './details.component.html',
   styleUrls: ['./details.component.css']
 })
-export class DetailsComponent {
+export class DetailsComponent implements OnInit {
 
   post: IPost | null = null;
-
+  error: any;
   
-
   constructor(
     private postService: PostService,
     private authService: AuthorizationService,
     private activateRoute: ActivatedRoute,
     private router: Router,
-  ) { 
+  ) {
     let id = this.activateRoute.snapshot.params.productId;
-    this.postService.loadPostById(id).subscribe(post => {this.post = post; console.log(post)})
+    this.postService.loadPostById(id).subscribe(post => { this.post = post; console.log(post) })
+  }
+
+  ngOnInit(): void {
+    this.router.routeReuseStrategy.shouldReuseRoute = () => {
+      return false;
+    }
   }
 
   get id(): any {
@@ -31,11 +36,27 @@ export class DetailsComponent {
   }
 
   deletePost(id: string) {
-    console.log(id)
     this.postService.deletePost(id).subscribe({
       next: () => {
         this.router.navigate(['/']);
+      },
+      error: (error: any) => {
+        this.error = error;
+        this.router.navigate(['/details', id])
       }
+    })
+  }
+
+  addToFavourite(id: string) {
+    this.postService.likePost(id).subscribe({
+      next: () => {
+        this.router.navigate(['/my-favourite']);
+      },
+      error: (error: any) => {
+        this.error = error;
+        this.router.navigate(['/details', id])
+      }
+
     })
   }
 

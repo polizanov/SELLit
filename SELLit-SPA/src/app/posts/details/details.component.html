@@ -1,4 +1,7 @@
 <section id="details-page">
+    <div *ngIf="error" class="error">
+        <p>{{error.error.message}}</p>
+    </div>
     <div *ngIf="post" class="details-container">
         <h1>{{post.name}}</h1>
         <div class="description">
@@ -13,21 +16,23 @@
             <p id="price">Only for: <span>{{post.price}}</span> lv.</p>
             <ng-container *ngIf="id">
                 <div *ngIf="id == post.creator._id" class="buttons">
-                    <a  [routerLink]="['/edit', post._id]" id="edit">Edit</a>
-                    <a  (click)="deletePost(post._id)" id="delete">Delete</a>
+                    <a [routerLink]="['/edit', post._id]" id="edit">Edit</a>
+                    <a (click)="deletePost(post._id)" id="delete">Delete</a>
+                     <p *ngIf="post.likes.length > 0"><span>{{post.likes.length}} people liked!</span></p>
                 </div>
-                <div *ngIf="id !== post.creator._id" class="buttons" >
+                <div *ngIf="id !== post.creator._id" class="buttons">
                     <div *ngIf="post.likes.includes(id)">
                         <a id="interest-alerady">Already added to the Favourite Tab</a>
                         <p *ngIf="post.likes.length > 0"><span>{{post.likes.length}} people liked!</span></p>
                     </div>
                     <div *ngIf="!post.likes.includes(id)">
-                        <a href="#" id="interest">Add to Favourite Tab</a>
-                        <p *ngIf="post.likes.length > 0">Hurry up! <span>{{post.likes.length}} people</span> are interested in this product!</p>
+                        <button (click)="addToFavourite(post._id)" id="interest">Add to Favourite Tab</button>
+                        <p *ngIf="post.likes.length > 0">Hurry up! <span>{{post.likes.length}} people</span> are
+                            interested in this product!</p>
                     </div>
                 </div>
             </ng-container>
-            
+
             <div class="creator">
                 <div class="wrap">
                     <h3>Contact with: <span id="username">{{post.creator.username}}</span></h3>
@@ -35,7 +40,8 @@
                         <img class='profile' src={{post.creator.profileImg}} alt="profile-photo">
                     </ng-container>
                     <ng-container *ngIf="!post.creator.profileImg">
-                        <img class='profile' src="../../../assets/images/356-3562377_personal-user.png" alt="profile-photo">
+                        <img class='profile' src="../../../assets/images/356-3562377_personal-user.png"
+                            alt="profile-photo">
                     </ng-container>
                 </div>
                 <p>Phone: {{post.phone}}</p>

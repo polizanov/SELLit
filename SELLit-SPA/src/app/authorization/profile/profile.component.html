@@ -27,7 +27,7 @@
                     <div class="product-body">
                         <img src={{product.imageUrl}}
                             alt="product-photo">
-                        <p>{{product.description}}</p>
+                        <p>{{product.description.slice(0, 40) + "..."}}</p>
                         <footer>
                             <p>Only for: <span>{{product.price}} lv</span></p>
                         </footer>

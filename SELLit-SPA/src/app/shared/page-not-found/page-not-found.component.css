@@ -1,0 +1,41 @@
+#home-page {
+    background-color: rgb(250, 238, 217);
+    height: 90%;
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+}
+
+h1 {
+    margin-top: 10px;
+    font-size: 50px;
+    margin-bottom: 15px;
+}
+
+#home-page-container {
+    margin: auto;
+    width: 60%;
+}
+
+#home-page-container h1 {
+    text-align: initial;
+}
+
+#home-page-container img {
+    margin-top: 10px;
+    height: 90%;
+    width: 90%;
+    padding-bottom: 20px;
+}
+
+#home-page-container h1{
+    text-align: center;
+}
+
+.console-auth {
+    margin: auto;
+    padding-top: 10px;
+    width: 47%;
+}
+
+

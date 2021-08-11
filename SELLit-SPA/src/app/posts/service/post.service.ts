@@ -60,5 +60,13 @@ export class PostService {
     })
   }
 
+  likePost(id: string) {
+    return this.httpClient.get<IResponce>(`${apiURL}/like/${id}`, {
+      headers: {
+        "sessionToken": this.token
+      }
+    })
+  }
+
 
 }

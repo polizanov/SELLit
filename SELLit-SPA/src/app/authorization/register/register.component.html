@@ -4,12 +4,10 @@
         <div class="auth-container">
             <h1>Register Page</h1>
 
-            <p *ngIf="error">
+            <p *ngIf="error" class="error">
                 {{error.error.message}}
             </p>
-            
-            <label for="username">Username</label>
-            <input formControlName="username" id="username" placeholder="Enter Username..." name="username" type="text">
+
             <ng-container *ngIf="form.get('username')?.touched">
                 ` <p class="error" *ngIf="form.get('username')?.errors?.required">
                     Username is required!
@@ -19,10 +17,6 @@
                 </p>
             </ng-container>
 
-
-
-            <label for="email">Email</label>
-            <input formControlName="email" id="email" placeholder="Enter Email..." name="email" type="text">
             <ng-container *ngIf="form.get('email')?.touched">
                 <p class="error" *ngIf="form.get('email')?.errors?.required">
                     Email is required!
@@ -32,9 +26,6 @@
                 </p>
             </ng-container>
 
-
-            <label for="password">Password</label>
-            <input formControlName="password" id="password" type="password" placeholder="Enter Password..." name="password">
             <ng-container *ngIf="form.get('password')?.touched">
                 <p class="error" *ngIf="form.get('password')?.errors?.required">
                     Password is required!
@@ -44,9 +35,6 @@
                 </p>
             </ng-container>
 
-
-            <label for="repeatPassword">Repeat Password</label>
-            <input formControlName="repeatPassword" id="repeatPassword" type="password" placeholder="Enter Repeat Password..." name="repeatPassword">
             <ng-container *ngIf="form.get('repeatPassword')?.touched">
                 <p class="error" *ngIf="form.get('repeatPassword')?.errors?.required">
                     Repeat Password is required!
@@ -55,8 +43,19 @@
                     Repeat Password and Password does not match!
                 </p>
             </ng-container>
-
-
+            
+            <label for="username">Username</label>
+            <input formControlName="username" id="username" placeholder="Enter Username..." name="username" type="text">
+            
+            <label for="email">Email</label>
+            <input formControlName="email" id="email" placeholder="Enter Email..." name="email" type="text">
+            
+            <label for="password">Password</label>
+            <input formControlName="password" id="password" type="password" placeholder="Enter Password..." name="password">
+            
+            <label for="repeatPassword">Repeat Password</label>
+            <input formControlName="repeatPassword" id="repeatPassword" type="password" placeholder="Enter Repeat Password..." name="repeatPassword">
+            
             <input type="submit" class="authbtn button" value="Register">
             <div class="container login">
                 <p>Already have an account?<a routerLink="/login">Sign in</a> now!</p>

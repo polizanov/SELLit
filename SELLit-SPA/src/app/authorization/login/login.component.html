@@ -3,11 +3,10 @@
     <form [formGroup]="form" id="login" (ngSubmit)="login()">
         <div class="auth-container">
             <h1>Login Page</h1>
-            <p *ngIf="error">
+            <p *ngIf="error" class="error">
                 {{error.error.message}}
             </p>
-            <label for="username">Username</label>
-            <input formControlName="username" id="username" placeholder="Enter Username..." name="username" type="text">
+
             <ng-container *ngIf="form.get('username')?.touched">
                 <p class="error" *ngIf="form.get('username')?.errors?.required">
                     Username is required!
@@ -17,8 +16,6 @@
                 </p>
             </ng-container>
 
-            <label for="password">Password</label>
-            <input formControlName="password" id="password" type="password" placeholder="Enter Password..." name="password">
             <ng-container *ngIf="form.get('password')?.touched">
                 <p class="error" *ngIf="form.get('password')?.errors?.required">
                     Password is required!
@@ -28,6 +25,12 @@
                 </p>
             </ng-container>
 
+            <label for="username">Username</label>
+            <input formControlName="username" id="username" placeholder="Enter Username..." name="username" type="text">
+            
+            <label for="password">Password</label>
+            <input formControlName="password" id="password" type="password" placeholder="Enter Password..." name="password">
+            
             <input type="submit" class="authbtn button" value="Login">
             <div class="container login">
                 <p>Don't have an account?<a routerLink="/register">Sign up</a> now!</p>

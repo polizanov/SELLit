@@ -8,6 +8,7 @@ import { AuthorizationService } from './authorization.service';
 import {  ReactiveFormsModule } from '@angular/forms';
 import { MyFavouriteComponent } from './my-favourite/my-favourite.component';
 import { EditProfileComponent } from './edit-profile/edit-profile.component';
+import { UserService } from './profile/user.service';
 
 
 
@@ -26,6 +27,7 @@ import { EditProfileComponent } from './edit-profile/edit-profile.component';
   ],
   providers: [
     AuthorizationService,
+    UserService,
   ]
 })
 export class AuthorizationModule { }

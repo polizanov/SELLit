@@ -8,8 +8,6 @@
                 <p>{{error.error.message}}</p>
             </div>
 
-            <label for="name">Name</label>
-            <input formControlName="name" id="name" placeholder="Enter Name..." name="name" type="text">
             <ng-container *ngIf="form.get('name')?.touched">
                 <p class="error" *ngIf="form.get('name')?.errors?.required">
                     Name is required!
@@ -19,8 +17,6 @@
                 </p>
             </ng-container>
 
-            <label for="imageUrl">Image URL</label>
-            <input formControlName="imageUrl" id="iamgeUrl" placeholder="Paste Image Url..." name="imageUrl" type="text">
             <ng-container *ngIf="form.get('imageUrl')?.touched">
                 <p class="error" *ngIf="form.get('imageUrl')?.errors?.required">
                     Image URL is required!
@@ -33,8 +29,6 @@
                 </p>
             </ng-container>
 
-            <label for="description">Description</label>
-            <textarea formControlName="description" id="description" placeholder="Say something about your product..." name="description"></textarea>
             <ng-container *ngIf="form.get('description')?.touched">
                 <p class="error" *ngIf="form.get('description')?.errors?.required">
                     Description is required!
@@ -44,20 +38,12 @@
                 </p>
             </ng-container>
 
-
-            <label for="condition">Condition: </label>
-            <select formControlName="condition" id="condition">
-                <option value="New">New</option>
-                <option value="Used">Used</option>
-            </select>
             <ng-container *ngIf="form.get('condition')?.touched">
                 <p class="error" *ngIf="form.get('description')?.errors?.required">
                     Condition is required!
                 </p>
             </ng-container>
-            
-            <label for="price">Price</label>
-            <input formControlName="price" id="price" placeholder="Enter Price..." name="price" type="number">
+
             <ng-container *ngIf="form.get('price')?.touched">
                 <p class="error" *ngIf="form.get('price')?.errors?.required">
                     Price is required!
@@ -66,9 +52,7 @@
                     Invalid Price!
                 </p>
             </ng-container>
-           
-            <label for="phone">Phone number</label>
-            <input formControlName="phone" id="phone" placeholder="Enter phone number..." name="phone" type="text">
+
             <ng-container *ngIf="form.get('phone')?.touched">
                 <p class="error" *ngIf="form.get('phone')?.errors?.required">
                     Phone is required!
@@ -84,6 +68,27 @@
                 </p>
             </ng-container>
 
+            <label for="name">Name</label>
+            <input formControlName="name" id="name" placeholder="Enter Name..." name="name" type="text">
+            
+            <label for="imageUrl">Image URL</label>
+            <input formControlName="imageUrl" id="iamgeUrl" placeholder="Paste Image Url..." name="imageUrl" type="text">
+    
+            <label for="description">Description</label>
+            <textarea formControlName="description" id="description" placeholder="Say something about your product..." name="description"></textarea>
+            
+            <label for="condition">Condition: </label>
+            <select formControlName="condition" id="condition">
+                <option value="New">New</option>
+                <option value="Used">Used</option>
+            </select>
+            
+            <label for="price">Price</label>
+            <input formControlName="price" id="price" placeholder="Enter Price..." name="price" type="number">
+            
+            <label for="phone">Phone number</label>
+            <input formControlName="phone" id="phone" placeholder="Enter phone number..." name="phone" type="text">
+            
             <input type="submit" class="button" value="Share">
         </div>
     </form>

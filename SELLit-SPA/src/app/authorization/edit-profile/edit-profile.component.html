@@ -7,8 +7,6 @@
                 <p>{{error.error.message}}</p>
             </div>
 
-            <label for="username">Username</label>
-            <input formControlName="username" id="username" placeholder="Enter Username..." name="username" type="text">
             <ng-container *ngIf="form.get('username')?.touched">
                 <p class="error" *ngIf="form.get('username')?.errors?.required">
                     Username is required!
@@ -18,8 +16,6 @@
                 </p>
             </ng-container>
 
-            <label for="imageUrl">Profile Image URL</label>
-            <input formControlName="imageUrl" id="iamgeUrl" placeholder="Paste Profile Image Url..." name="imageUrl" type="text">
             <ng-container *ngIf="form.get('imageUrl')?.touched">
                 <p class="error" *ngIf="form.get('imageUrl')?.errors?.required">
                     Image URL is required!
@@ -32,6 +28,12 @@
                 </p>
             </ng-container>
 
+            <label for="username">Username</label>
+            <input formControlName="username" id="username" placeholder="Enter Username..." name="username" type="text">
+            
+            <label for="imageUrl">Profile Image URL</label>
+            <input formControlName="imageUrl" id="iamgeUrl" placeholder="Paste Profile Image Url..." name="imageUrl" type="text">
+            
             <input type="submit" class="button" value="Share">
         </div>
     </form>

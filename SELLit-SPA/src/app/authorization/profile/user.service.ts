@@ -4,18 +4,26 @@ import { Injectable } from '@angular/core';
 import { IProfile } from "../../shared/interfaces/profile/IProfile"
 import { environment } from "../../../environments/environment"
 import { Observable } from 'rxjs';
+import { AuthorizationService } from '../authorization.service';
 const { apiURL } = environment
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class UserService {
 
   constructor(
-    private httpClient: HttpClient
+    private httpClient: HttpClient,
+    private authService: AuthorizationService,
   ) { }
 
-  loadProfileById(id: string): Observable<IProfile> {
-    return this.httpClient.get<IProfile>(`${apiURL}/profile/${id}`)
+  token(): string {
+    return this.authService.token
+  }
+
+  loadProfileById(profileId: string): Observable<IProfile> {
+    return this.httpClient.get<IProfile>(`${apiURL}/profile/${profileId}`, {
+      headers: {
+        sessionToken: this.token()
+      }
+    })
   }
 }

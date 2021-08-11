@@ -93,6 +93,43 @@ REST API for SELLit – Single Page Application, created with Angular.
     sessionToken: true,
 }
 ```
+* **Login** - METHOD -> POST : "/auth/login".
+```javascript
+{   
+    sessionToken: false,
+    body: {
+        username: String,
+        password: String,
+    }
+}
+```
+* **Register** - METHOD -> POST : "/auth/register".
+```javascript
+{   
+    sessionToken: false,
+    body: {
+        username: String,
+        password: String,
+        email: String,
+    }
+}
+```
+* **Logout** - METHOD -> GET : "/auth/logout".
+```javascript
+{   
+    sessionToken: true,
+}
+```
+* **Edit Profile** - METHOD -> POST : "/auth/edit-profile".
+```javascript
+{   
+    sessionToken: true,
+    body: {
+        username: String,
+        imageUrl: String,
+    }
+}
+```
 
 ## Access control:
 * All users can view the posts.

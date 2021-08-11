@@ -1,1 +1,0 @@
-console.log(JSON.stringify({email: "sasho@abv.bg", username: "sasho", password: "12341234"}))

@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { ChildrenOutletContexts, RouterModule, Routes } from '@angular/router';
+import { AuthorizationGuard } from '../shared/guards/authorization.guard';
 import { AllComponent } from './all/all.component';
 import { CreateComponent } from './create/create.component';
 import { DetailsComponent } from './details/details.component';
@@ -21,6 +22,11 @@ const routes: Routes = [
     {
         path: "create",
         component: CreateComponent,
+        canActivate: [AuthorizationGuard],
+        data: {
+            isAuth: true,
+            rediretUrl: "/"
+        }
     },
     {
         path: "edit",
@@ -28,6 +34,11 @@ const routes: Routes = [
             path: ":productId",
             component: EditComponent
         }],
+        canActivate: [AuthorizationGuard],
+        data: {
+            isAuth: true,
+            rediretUrl: "/"
+        }
     }, 
 ];
 

@@ -14,7 +14,7 @@ const routes: Routes = [
         canActivate: [AuthorizationGuard],
         data: {
             isAuth: false,
-            redirectUrl: "/"
+            redirectUrl: "/all-products"
         }
     },
     {
@@ -23,7 +23,7 @@ const routes: Routes = [
         canActivate: [AuthorizationGuard],
         data: {
             isAuth: false,
-            redirectUrl: "/"
+            redirectUrl: "/all-products"
         }
     },
     {

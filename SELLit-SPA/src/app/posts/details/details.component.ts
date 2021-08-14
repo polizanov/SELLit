@@ -10,7 +10,7 @@ import { PostService } from '../service/post.service';
   templateUrl: './details.component.html',
   styleUrls: ['./details.component.css']
 })
-export class DetailsComponent implements OnInit {
+export class DetailsComponent {
 
   post: IPost | null = null;
   error: any;
@@ -22,15 +22,10 @@ export class DetailsComponent implements OnInit {
     private router: Router,
   ) {
     let id = this.activateRoute.snapshot.params.productId;
-    this.postService.loadPostById(id).subscribe(post => { this.post = post; console.log(post) })
+    this.postService.loadPostById(id).subscribe(post => this.post = post)
   }
 
-  ngOnInit(): void {
-    this.router.routeReuseStrategy.shouldReuseRoute = () => {
-      return false;
-    }
-  }
-
+  
   get id(): any {
     return this.authService.id
   }

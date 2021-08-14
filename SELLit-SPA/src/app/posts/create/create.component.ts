@@ -37,8 +37,7 @@ export class CreateComponent {
       return;
     }
 
-    console.log(this.form.value)
-
+  
     this.postService.sentPost(this.form.value).subscribe({
       next: () => {
         this.router.navigate(['/']);

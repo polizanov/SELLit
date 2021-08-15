@@ -30,8 +30,6 @@ export class EditProfileComponent {
       return;
     }
 
-    console.log(this.form.value);
-
     this.authService.editProfile(this.form.value).subscribe({
       next: () => {
         this.router.navigate(["/my-profile", this.authService.id]);

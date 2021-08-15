@@ -13,8 +13,7 @@ import { PostService } from '../service/post.service';
 export class DetailsComponent {
 
   post: IPost | null = null;
-  error: any;
-  
+
   constructor(
     private postService: PostService,
     private authService: AuthorizationService,
@@ -35,8 +34,7 @@ export class DetailsComponent {
       next: () => {
         this.router.navigate(['/']);
       },
-      error: (error: any) => {
-        this.error = error;
+      error: () => {
         this.router.navigate(['/details', id])
       }
     })
@@ -47,8 +45,7 @@ export class DetailsComponent {
       next: () => {
         this.router.navigate(['/my-favourite']);
       },
-      error: (error: any) => {
-        this.error = error;
+      error: () => {
         this.router.navigate(['/details', id])
       }
 

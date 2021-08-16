@@ -42,8 +42,6 @@ export class EditComponent {
       return
     }
     
-    console.log(this.form.value)
-
     this.postService.editPost(this.form.value, this.activateRoute.snapshot.params.productId).subscribe({
       next: () => {
         this.router.navigate(['/']);

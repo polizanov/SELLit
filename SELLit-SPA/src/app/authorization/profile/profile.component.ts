@@ -20,7 +20,7 @@ export class ProfileComponent {
     private authSevice: AuthorizationService,
   ) {
     let id = this.activateRoute.snapshot.params.profileId;
-    this.userService.loadProfileById(id).subscribe(user => {console.log(user); this.user = user})
+    this.userService.loadProfileById(id).subscribe(user =>  this.user = user)
   }
 
   id(): string {

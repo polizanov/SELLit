@@ -16,7 +16,7 @@ export class MyFavouriteComponent {
   constructor(
     private postService: PostService,
   ) { 
-    this.postService.loadMyFavourite().subscribe(posts => {this.posts = posts; console.log(posts)})
+    this.postService.loadMyFavourite().subscribe(posts => this.posts = posts)
   }
 
   ngOnInit(): void {

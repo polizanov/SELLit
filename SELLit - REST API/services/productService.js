@@ -12,43 +12,42 @@ async function create(bodyData, userId) {
     let data = [name, imageUrl, description, condition, price, phone]
         .map(x => {
             if (x) {
-                console.log(x)
                 return x.toString().trim();
             }
 
-            return " "
+            return " ";
         })
 
     if (data.includes(" ")) {
-        throw { message: "All fields are required!" }
+        throw { message: "All fields are required!" };
     }
 
     if (data[0].length < 4) {
-        throw { message: "Name must be at least 4 characters!" }
+        throw { message: "Name must be at least 4 characters!" };
     }
 
     if (data[1].length < 10) {
-        throw { message: "ImageUrl must be at least 10 characters!" }
+        throw { message: "ImageUrl must be at least 10 characters!" };
     }
 
     if (!IMAGE_URL_PATTERN.test(data[1])) {
-        throw { message: "Invalid ImageUrl" }
+        throw { message: "Invalid ImageUrl" };
     }
 
     if (data[2].length < 8) {
-        throw { message: "Description must be at least 8 characters!" }
+        throw { message: "Description must be at least 8 characters!" };
     }
 
     if (!CONDITION_PATTERN.test(data[3])) {
-        throw { message: "Invalid Condition value" }
+        throw { message: "Invalid Condition value" };
     }
 
     if (!(!!Number(data[4]))) {
-        throw { message: "Invalid Price value" }
+        throw { message: "Invalid Price value" };
     }
 
     if (!PHONE_PATTERN.test(data[5])) {
-        throw { message: "Invalid Phone value" }
+        throw { message: "Invalid Phone value" };
     }
 
     let productObj = new Post({
@@ -59,9 +58,9 @@ async function create(bodyData, userId) {
         price: data[4],
         phone: data[5],
         creator: userId,
-    })
+    });
 
-    return productObj.save()
+    return productObj.save();
 }
 
 async function edit(bodyData, userId, productId) {
@@ -79,40 +78,40 @@ async function edit(bodyData, userId, productId) {
                 return x.toString().trim();
             }
 
-            return " "
+            return " ";
         })
 
     if (data.includes(" ")) {
-        throw { message: "All fields are required!" }
+        throw { message: "All fields are required!" };
     }
 
     if (data[0].length < 4) {
-        throw { message: "Name must be at least 4 characters!" }
+        throw { message: "Name must be at least 4 characters!" };
     }
 
     if (data[1].length < 10) {
-        throw { message: "ImageUrl must be at least 10 characters!" }
+        throw { message: "ImageUrl must be at least 10 characters!" };
     }
 
 
     if (!IMAGE_URL_PATTERN.test(data[1])) {
-        throw { message: "Invalid ImageUrl" }
+        throw { message: "Invalid ImageUrl" };
     }
 
     if (data[2].length < 8) {
-        throw { message: "Description must be at least 8 characters!" }
+        throw { message: "Description must be at least 8 characters!" };
     }
 
     if (!CONDITION_PATTERN.test(data[3])) {
-        throw { message: "Invalid Condition value" }
+        throw { message: "Invalid Condition value" };
     }
 
     if (!(!!Number(data[4]))) {
-        throw { message: "Invalid Price value" }
+        throw { message: "Invalid Price value" };
     }
 
     if (!PHONE_PATTERN.test(data[5])) {
-        throw { message: "Invalid Phone value" }
+        throw { message: "Invalid Phone value" };
     }
 
     return Post.updateOne({ _id: productId }, {
@@ -129,15 +128,15 @@ async function deleteOne(userId, productId) {
     let product = await Post.findOne({ _id: productId });
 
     if (product.creator.toString() !== userId) {
-        throw { message: "Unauthorized!" }
+        throw { message: "Unauthorized!" };
     }
 
-    return Post.deleteOne({ _id: productId })
+    return Post.deleteOne({ _id: productId });
 }
 
 function getOne(productId) {
     return Post.findOne({ _id: productId })
-        .populate({ path: "creator", select: ["email", "username", "likes", "profileImg"] })
+        .populate({ path: "creator", select: ["email", "username", "likes", "profileImg"] });
 
 }
 
@@ -162,7 +161,7 @@ async function likePost(productId, userId) {
     ]);
 
     if(user.likedPosts.includes(productId)){
-        throw {message: "Already liked"}
+        throw {message: "Already liked"};
     }
 
     post.likes.push(userId);

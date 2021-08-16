@@ -8,15 +8,15 @@ async function createUser(data) {
     let { email, username, password } = data;
 
     if (email.trim() == "" || username.trim() == "" || password.trim() == "") {
-        throw { message: "All fields are required!" }
+        throw { message: "All fields are required!" };
     }
 
     if (email.trim().length < 4 || username.trim().length < 4 || password.trim().length < 4) {
-        throw { message: "Username, Email, and Password must be at least 4 characters!" }
+        throw { message: "Username, Email, and Password must be at least 4 characters!" };
     }
 
     if (!validator.isEmail(email.trim())) {
-        throw { message: "Invalid Email!" }
+        throw { message: "Invalid Email!" };
     }
 
     let [findUser, findEmail] = await Promise.all([
@@ -25,11 +25,11 @@ async function createUser(data) {
     ])
 
     if (findUser) {
-        throw { message: "User exist!" }
+        throw { message: "User exist!" };
     }
 
     if (findEmail) {
-        throw { message: "User with current email exist!" }
+        throw { message: "User with current email exist!" };
     }
 
     const hash = bcrypt.hashSync(password.trim(), SALT_ROUNDS);
@@ -44,43 +44,42 @@ async function createUser(data) {
 }
 
 async function register(data) {
-    console.log(data)
+
     try {
         await createUser(data);
     } catch (err) {
-        console.log(err)
-        throw { message: err.message }
+        throw { message: err.message };
     }
 
     let user = await User.findOne({ username: data.username });
 
     let token = jwt.sign({ id: user._id, username: user.username }, JWT_SECRET);
 
-    return { sessionToken: token, objectId: user._id, username: user.username, email: user.email }
+    return { sessionToken: token, objectId: user._id, username: user.username, email: user.email };
 }
 
 async function login(data) {
     let { username, password } = data;
 
     if (username == "" || password == "") {
-        throw { message: "All fields are required!" }
+        throw { message: "All fields are required!" };
     }
 
     let user = await User.findOne({ username: username });
 
     if (!user) {
-        throw { message: "Incorect username or password!" }
+        throw { message: "Incorect username or password!" };
     }
 
     let isMatch = bcrypt.compareSync(data.password, user.password);
 
     if (!isMatch) {
-        throw { message: "Incorect username or password!" }
+        throw { message: "Incorect username or password!" };
     }
 
     let token = jwt.sign({ id: user._id, username: user.username }, JWT_SECRET);
 
-    return { sessionToken: token, objectId: user._id, username: user.username, email: user.email }
+    return { sessionToken: token, objectId: user._id, username: user.username, email: user.email };
 }
 
 async function editProfile(data, profileId) {

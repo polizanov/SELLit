@@ -1,4 +1,4 @@
-# RЕST API - Life Hacks
+# RЕST API - SELLit
 REST API for SELLit – Single Page Application, created with Angular.
 
 ## Functionality

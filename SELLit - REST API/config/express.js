@@ -7,5 +7,4 @@ module.exports = (app) => {
     require("./mongoose");
 
     app.use(express.json());
-
 }

@@ -23,6 +23,8 @@ router.post("/create-product", isAuth, async (req, res) => {
     }
 })
 
+
+
 router.put("/edit-product/:productId", isAuth, async (req, res) => {
     try {
         await productService.edit(req.body, res.locals.user.id, req.params.productId);

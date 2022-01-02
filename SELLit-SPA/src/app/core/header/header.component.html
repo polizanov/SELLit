@@ -1,25 +1,44 @@
-<!-- Header Component -->
-<nav>
-    <a routerLink="/all-products">See Products</a>
+<section class="navigation">
+    <article class="navigation-header-wrapper">
+        <h1 routerLink="/" class="header">SEllit</h1>
+    </article>
 
-    
-    <!-- Logged -->
-    <div *ngIf="isLogged()" class="logged">
-        <a routerLink="/create">Share product</a>
-        <div class="left">
-            <a [routerLink]="['/my-profile', userId()]">Hi, {{username()}}</a>
-            <a routerLink="/my-favourite">My Favourite Products</a>
-            <a (click)="logout()" routerLink="/">Logout</a>
-        </div>
-    </div>
+    <article class="left-links">
+        <ul>
+            <li>
+                <a routerLink="/all-products">See Products</a>
+            </li>
+            <li>
+                <a *ngIf="isLogged()" routerLink="/create">Share Product</a>
+            </li>
+        </ul>
+    </article>
 
-    <!-- Guest -->
-    <div *ngIf="!isLogged()" class="guest">
-        <a routerLink="/">Home</a>
-        <div class="left">
-            <a routerLink="/login">Login</a>
-            <a routerLink="/register">Register</a>
-        </div>
-    </div>
+    <article class="right-links">
+        <ul>
+            <ng-container *ngIf="!isLogged()">
+                <li>
+                    <a routerLink="/login">Login</a>
+                </li>
+                <li>
+                    <a routerLink="/register">Register</a>
+                </li>
+            </ng-container>
+            <ng-container *ngIf="isLogged()">
+                <li>
+                    <a [routerLink]="['/my-profile', userId()]">Hi, {{username()}}</a>
+                </li>
+                <li>
+                    <a routerLink="/my-favourite">My Favourite Products</a>
+                </li>
+                <li>
+                    <a (click)="logout()">Logout</a>
+                </li>
+            </ng-container>
+        </ul>
+    </article>
+</section>
 
-</nav>
+
+
+

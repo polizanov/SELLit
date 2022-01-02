@@ -1,30 +1,54 @@
-/* Navigation  */
-
-nav {
-    background-color: rgb(241, 189, 110);
-    overflow: hidden;
+.navigation {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: #002f34;
+    padding: 10px;
 }
 
-nav a {
-    font-size: 19px;
+.header {
+    font-family: 'Vujahday Script', "Helvetica";
+    font-size: 40px;
+    color: white;
+    margin: 0px;
+    cursor: pointer;
+}
+
+.left-links ul,
+.right-links ul {
+    list-style: none;
+    display: flex;
+}
+
+.left-links ul li,
+.right-links ul li {
+    margin: 10px;
+}
+
+.left-links ul li a,
+.right-links ul li a {
     text-decoration: none;
-    padding: 14px 16px;
-    color: azure;
-    float: left;
-    text-align: center;
+    background-color: #1a918b;
+    padding: 10px;
+    border: 3px solid #1a918b;
+    text-transform: uppercase;
+    color: white;
+    font-size: 15px;
+    font-weight: bold;
+    box-shadow: 11px 10px 0px -9px #FFFFFF;
+    cursor: pointer;
 }
 
-nav a:hover {
-    font-size: 19px;
+.left-links ul li a:hover,
+.right-links ul li a:hover {
     text-decoration: none;
-    padding: 14px 16px;
-    color: rgb(241, 189, 110);
-    background-color:azure;
-    float: left;
-    text-align: center;
+    background-color: white;
+    padding: 10px;
+    border: 3px solid #1a918b;
+    text-transform: uppercase;
+    color: #1a918b;
+    font-size: 15px;
+    font-weight: bold;
+    box-shadow: -11px -10px 0px -9px #FFFFFF;
+    cursor: pointer;
 }
-
-.left {
-    float: right;
-}
-

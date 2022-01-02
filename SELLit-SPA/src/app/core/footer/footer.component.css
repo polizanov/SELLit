@@ -1,9 +1,12 @@
 .footer p {
     margin: 0px;
-    padding: 20px;
+    padding: 10px;
     background-color: darkgrey;
     color: whitesmoke;
     text-align: center;
+    font-size: 30px;
+    font-weight: bold;
+    
 }
 
 .author {

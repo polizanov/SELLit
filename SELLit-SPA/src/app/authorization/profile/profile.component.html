@@ -1,4 +1,65 @@
-<!-- Profile Page -->
+<section class="profile-page">
+    <section class="header">
+        <article *ngIf="user" class="user-data">
+            <ng-container *ngIf="user.profileInfo.profileImg">
+                <article class="img-data-wrapper">
+                    <img class="image" src={{user.profileInfo.profileImg}} alt="profile-photo">
+                </article>
+            </ng-container>
+            <ng-container *ngIf="!user.profileInfo.profileImg">
+                <article class="img-data-wrapper">
+                    <img class="image" src="../../../assets/images/356-3562377_personal-user.png" alt="profile-photo">
+                </article>
+            </ng-container>
+            <article class="data">
+                <p>EMAIL: {{user.profileInfo.email}}</p>
+                <p>USERNAME: {{user.profileInfo.username}}</p>
+                <p>POST COUNT: {{user.products.length}}</p>
+                <article class="edit-wrapper">
+                    <a *ngIf="isAuthor()" routerLink="/edit-profile" class="edit">Edit Profile</a>
+                </article>
+            </article>
+        </article>
+    </section>
+
+    <section *ngIf="!(user?.products?.length === 0)" class="content-wrapper">
+        <article *ngFor="let product of user?.products" class="current-post">
+            <article class="img-wrapper">
+                <img src={{product.imageUrl}}
+                alt="product-photo">
+            </article>
+            <h2>{{product.name}}</h2>
+            <p>{{product.description.slice(0, 40) + "..."}}</p>
+            <article class="price-wrapper">
+                <p>Only for: <span class="price">{{product.price}}</span>lv</p>
+            </article>
+            <article class="see-more-wrap">
+                <a [routerLink]="['/details', product._id]" class="details">See More</a>
+            </article>
+        </article>
+    </section>
+
+    <div *ngIf="user?.products?.length === 0">
+        <section class="no-data">
+            <article class="content">
+                <h1>Looks like there are no products yet!</h1>
+                <h3>Add the first one?</h3>
+                <article class="add">
+                    <a routerLink="/create">Add the first one</a>
+                </article>
+            </article>
+    
+            <section class="icon-wrapper">
+                <i class="fas fa-exclamation"></i>
+            </section>
+    
+        </section>
+    </div>
+
+</section>
+
+
+<!-- Profile Page
 
     <div class="profile-container" *ngIf="user">
         <h1>Profile Page</h1>
@@ -38,14 +99,23 @@
                 </div>
             </div>
     </div>
+
+    <div *ngIf="user.products.length === 0">
+        <section class="no-data">
+            <article class="content">
+                <h1>Looks like there are no products yet!</h1>
+                <h3>Add the first one?</h3>
+                <article class="add">
+                    <a routerLink="/create">Add the first one</a>
+                </article>
+            </article>
     
-    <div *ngIf="user.products.length === 0" class="no-data">
-        <div class="no-data-wrapper">
-            <h1>Looks like there are no products yet!</h1>
-            <h2>Add the first one?</h2>
-            <div id="add-first-wrap">
-                <a href="/create" class="details">Share prduct</a>
-            </div>
-        </div>
-    </div>
+            <section class="icon-wrapper">
+                <i class="fas fa-exclamation"></i>
+            </section>
+    
+        </section>
+    </div> -->
+    
+    
 

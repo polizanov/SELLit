@@ -8,7 +8,7 @@
 }
 
 .current-post {
-    margin: 12px;
+    margin: 40px 30px;
     width: 300px;
     height: 500px;
     background-image:
@@ -27,6 +27,10 @@
 
 .current-post {
     text-align: center;
+}
+
+.current-post p {
+    font-size: 20px;
 }
 
 .img-wrapper {

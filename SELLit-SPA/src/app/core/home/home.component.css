@@ -25,6 +25,15 @@
     text-align: center;
     width: 450px;
     margin: 60px auto;
+    margin-bottom: 10px;
+}
+
+.sub-header {
+    font-size: 40px;
+    color: white;
+    text-align: center;
+    width: 450px;
+    margin: 0 auto;
 }
 
 .content {

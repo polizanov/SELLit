@@ -1,4 +1,43 @@
-<div class="profile-container">
+<section class="favourite-products">
+    <section *ngIf="posts && posts.likedPosts.length > 0" class="content-wrapper">
+        <div *ngFor="let post of posts!.likedPosts">
+            <article class="current-post">
+                <article class="img-wrapper">
+                    <img src={{post.imageUrl}}
+                    alt="product-photo">
+                </article>
+                <h2>{{post.name}}</h2>
+                <p>{{post.description.slice(0, 40) + "..."}}</p>
+                <article class="price-wrapper">
+                    <p>Only for: <span class="price">499</span>lv</p>
+                </article>
+                <article class="see-more-wrap">
+                    <a [routerLink]="['/details', post._id]" class="details">See More</a>
+                </article>
+            </article>
+        </div>
+    </section>
+
+    <div *ngIf="!(posts && posts.likedPosts.length > 0)">
+        <section class="no-data">
+            <article class="content">
+                <h1>Looks like you don't have any favorite products.</h1>
+                <h3>Add the first one?</h3>
+                <article class="add">
+                    <a routerLink="/create">Add the first one</a>
+                </article>
+            </article>
+    
+            <section class="icon-wrapper">
+                <i class="fas fa-exclamation"></i>
+            </section>
+    
+        </section>
+    </div>
+</section>
+
+
+<!-- <div class="profile-container">
     <div *ngIf="posts && posts.likedPosts.length > 0" class="top-header">
         <div class="head-wrap">
             <h1>Find the best deal!</h1>
@@ -31,4 +70,4 @@
             </div>
         </div>
     </div>
-</div>
+</div> -->

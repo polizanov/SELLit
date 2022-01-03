@@ -1,4 +1,49 @@
-<!-- See Products Page -->
+<section class="authenticated-home">
+    <section class="content">
+        <article class="header-wrapper">
+            <h1 class="header">Sell ​​your unnecessary things and get something more useful!</h1>
+        </article>
+
+        <section *ngIf="posts" class="content-wrapper">
+            <div *ngFor="let post of posts">
+                <article class="current-post">
+                    <article class="img-wrapper">
+                        <img src={{post.imageUrl}}
+                        alt="product-photo">
+                    </article>
+                    <h2>{{post.name}}</h2>
+                    <p>{{post.description.slice(0, 40) + "..."}}</p>
+                    <article class="price-wrapper">
+                        <p>Only for: <span class="price">499</span>lv</p>
+                    </article>
+                    <article class="see-more-wrap">
+                        <a [routerLink]="['/details', post._id]" class="details">See More</a>
+                    </article>
+                </article>
+            </div>
+        </section>
+
+        <div *ngIf="!posts">
+            <section class="no-data">
+                <article class="content">
+                    <h1>Looks like you don't have any favorite products.</h1>
+                    <h3>Add the first one?</h3>
+                    <article class="add">
+                        <a href="#">Add the first one</a>
+                    </article>
+                </article>
+        
+                <section class="icon-wrapper">
+                    <i class="fas fa-exclamation"></i>
+                </section>
+        
+            </section>
+        </div>
+    </section>
+
+
+
+<!-- See Products Page
 <section id="see-products-page">
     <div class="top-header">
         <div *ngIf="posts" class="head-wrap">
@@ -36,4 +81,4 @@
             </div>
         </div>
     </div>
-</section>
+</section> -->

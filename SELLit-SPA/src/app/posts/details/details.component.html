@@ -1,4 +1,76 @@
-<section id="details-page">
+<section *ngIf="post" class="details-wrapper">
+    <section class="content-wrapper">
+        <h1 class="header">{{post.name}}</h1>
+        <article class="img-wrapper">
+            <img class="img" src={{post.imageUrl}} alt="details-photo">
+        </article>
+        <p class="description">
+            {{post.description}}
+        </p>
+        <p class="price-content">Only for <span class="price">{{post.price}}</span>lv</p>
+        <article class="content-buttons">
+            <ng-container *ngIf="id">
+                <ng-container *ngIf="id == post.creator._id">
+                    <a [routerLink]="['/edit', post._id]" class="edit">Edit</a>
+                    <a (click)="deletePost(post._id)" class="delete">Delete</a>
+                    <span *ngIf="post.likes.length > 0" class="likes">Likes: {{post.likes.length}}</span>
+                </ng-container>
+                <ng-container *ngIf="id !== post.creator._id">
+                    <div *ngIf="post.likes.includes(id)">
+                        <span *ngIf="post.likes.length > 0" class="likes">Likes: {{post.likes.length}}</span>
+                    </div>
+                    <div *ngIf="!post.likes.includes(id)">
+                        <a (click)="addToFavourite(post._id)" class="like">Add to Favourite Tab</a>
+                        <span *ngIf="post.likes.length > 0" class="likes">Likes: {{post.likes.length}}</span>
+                    </div>
+                </ng-container>
+            </ng-container>
+            <ng-container *ngIf="!id">
+                <a routerLink="/login" class="login">Login to like</a>
+            </ng-container>
+
+            <!-- <a class="like" href="#">Add to favourite tab</a>
+
+            <a class="login" href="#">Login to like</a> -->
+
+        </article>
+    </section>
+    <section class="user-wrapper">
+        <ng-container *ngIf="post.creator.profileImg">
+            <article class="img-user-wrapper">
+                <img class="user-img"
+                    src={{post.creator.profileImg}}
+                    alt="user-img">
+            </article>
+        </ng-container>
+        <ng-container *ngIf="!post.creator.profileImg">
+            <article class="img-user-wrapper">
+                <img class="user-img"
+                    src="../../../assets/images/356-3562377_personal-user.png"
+                    alt="user-img">
+            </article>
+        </ng-container>
+        <article class="user-content">
+            <h2>Contact with: <span class="username">{{post.creator.username}}</span></h2>
+            <p>Phone: <span class="bold-content">{{post.phone}}</span></p>
+            <p class="email">Email <span class="bold-content">{{post.creator.email}}</span></p>
+            <a [routerLink]="['/user-profile', post.creator._id]" class="profile-link">See Profile</a>
+        </article>
+    </section>
+</section>
+
+<!-- <div *ngIf="id !== post.creator._id" class="buttons">
+    <div *ngIf="post.likes.includes(id)">
+        <a id="interest-alerady">Already added to the Favourite Tab</a>
+        <p *ngIf="post.likes.length > 0"><span>{{post.likes.length}} people liked!</span></p>
+    </div>
+    <div *ngIf="!post.likes.includes(id)">
+        <button (click)="addToFavourite(post._id)" id="interest">Add to Favourite Tab</button>
+        <p *ngIf="post.likes.length > 0">Hurry up! <span>{{post.likes.length}} people</span> are
+            interested in this product!</p>
+    </div> -->
+
+<!-- <section id="details-page">
     <div *ngIf="post" class="details-container">
         <h1>{{post.name}}</h1>
         <div class="description">
@@ -47,4 +119,4 @@
             </div>
         </div>
     </div>
-</section>
+</section> -->

@@ -1,4 +1,55 @@
-<section id="edit-profile-page">
+<section class="edit-profile-wrapper">
+    <form class="edit-profile-form-wrapper" [formGroup]="form" id="share" (ngSubmit)="editProfile()">
+        <section class="edit-profile-form">
+            <article class="header-wrapper">
+                <h1 class="header">Edit Profile Info</h1>
+            </article>
+
+            <div *ngIf="error" class="error">
+                <p>{{error.error.message}}</p>
+            </div>
+
+            <article class="input-wrapper">
+                <article class="err-wrapper">
+                    <ng-container *ngIf="form.get('username')?.touched">
+                        <p class="error" *ngIf="form.get('username')?.errors?.required">
+                            Username is required!
+                        </p>
+                        <p class="error" *ngIf="form.get('username')?.errors?.minlength">
+                            Username should be at least 4 charecters!
+                        </p>
+                    </ng-container>
+
+                    <ng-container *ngIf="form.get('imageUrl')?.touched">
+                        <p class="error" *ngIf="form.get('imageUrl')?.errors?.required">
+                            Image URL is required!
+                        </p>
+                        <p class="error" *ngIf="form.get('imageUrl')?.errors?.minlength">
+                            Image URL should be at least 10 charecters!
+                        </p>
+                        <p class="error" *ngIf="form.get('imageUrl')?.errors?.pattern">
+                            Invalid Image URL!
+                        </p>
+                    </ng-container>
+                </article>
+
+                <label for="username">Username</label>
+                <input class="input-field" formControlName="username" placeholder="Enter Username..." name="username"
+                    type="text">
+
+                <label for="imageUrl">Profile Image URL</label>
+                <input class="input-field" formControlName="imageUrl" placeholder="Paste Profile Image Url..." name="imageUrl"
+                    type="text">
+
+                <input class="submit-button" type="submit" value="Edit Profile">
+            </article>
+        </section>
+    </form>
+</section>
+
+
+
+<!-- <section id="edit-profile-page">
     <form [formGroup]="form" id="share" (ngSubmit)="editProfile()">
         <div class="share-container">
             <h1>Edit Profile</h1>
@@ -37,4 +88,4 @@
             <input type="submit" class="button" value="Share">
         </div>
     </form>
-</section>
+</section> -->

@@ -1,17 +1,23 @@
-body {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    background-color: black;
+.details-bg-wrapper {
+    margin: 0px;
+    height: 900px;
+    width: 100%;
+    background-image:
+    linear-gradient(to top, rgb(0, 0, 0, 1), rgb(0, 0, 0, 0.8)),
+    url('../../../assets/images/IN0316INA07-web_80579.jpeg');
+    background-position: center;
+    background-size: cover;
+    padding: 150px 0px;
 }
 
 .details-wrapper {
-    max-width: 1400px;
-    margin: 100px auto;
+    max-width: 1200px;
+    margin: 0px auto;
     border: 4px solid #1a918b;
     display: flex;
     justify-content: space-around;
     box-shadow: -20px -16px 0px 1px rgba(26,145,139,0.96);
+    margin-bottom: 100px;
 }
 
 .content-wrapper {

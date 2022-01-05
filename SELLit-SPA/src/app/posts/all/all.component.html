@@ -40,45 +40,4 @@
             </section>
         </div>
     </section>
-
-
-
-<!-- See Products Page
-<section id="see-products-page">
-    <div class="top-header">
-        <div *ngIf="posts" class="head-wrap">
-            <h1>Wellcome to SELLit!</h1>
-            <h2>Sell ​​your unnecessary things and get something more useful!</h2>
-        </div>
-    </div>
-    <div *ngIf="posts" class="top-header">
-        <div *ngFor="let post of posts" class="product-wrap">
-            <div class="refactoring">
-                <div class="product-body">
-                    <h3>{{post.name}}</h3>
-                    <img src={{post.imageUrl}} alt="product-photo">
-                    <p>{{post.description.slice(0, 40) + "..."}}</p>
-                    <footer>
-                        <p>Only for: <span>{{post.price}} lv</span></p>
-                    </footer>
-                    <div id="see-more-wrap">
-                        <a [routerLink]="['/details', post._id]" class="details">See More</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div *ngIf="!posts" class="no-data">
-        <div class="no-data-wrapper">
-            <h1>Looks like there are no products yet!</h1>
-            <h2>Add the first one?</h2>
-            <div *ngIf="isLogged()" id="add-first-wrap">
-                <a routerLink="/create" class="details">Share prduct</a>
-            </div>
-            <div *ngIf="!isLogged()" id="add-first-wrap">
-                <a routerLink="/login" class="details">Login</a>
-            </div>
-        </div>
-    </div>
-</section> -->
+</section>

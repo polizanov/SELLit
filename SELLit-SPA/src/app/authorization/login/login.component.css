@@ -83,3 +83,13 @@
     color: #1a918b;
     box-shadow: -8px -8px 0px -7px #FFFFFF;
 }
+
+.login-msg {
+    color: white;
+    font-size: 25px;
+}
+
+.login-now {
+    color: #1B918B;
+    font-size: 25px;
+}

@@ -1,5 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Moon+Dance&family=Vujahday+Script&display=swap');
 
+.favourite-products {
+    padding-bottom: 80px;
+}
+
 .content-wrapper {
     display: flex;
     justify-content: space-around;

@@ -1,71 +1,85 @@
-/* Login */
-.auth-container {
-    background-color: rgb(250, 238, 217);
-    padding: 20px;
-    text-align: center;
-    margin: 10px;
+.login-wrapper {
+    margin: 0px;
+    height: 600px;
+    width: 100%;
+    background-image:
+    linear-gradient(to top, rgb(0, 0, 0, 1), rgb(0, 0, 0, 0.8)),
+    url('../../../assets/images/IN0316INA07-web_80579.jpeg');
+    background-position: center;
+    background-size: cover;
 }
 
-input[type=text], input[type=password] {
-    width: 50%;
-    margin: 5px 0 22px 0;
-    padding: 15px;
-    display: inline-block;
-    border: none;
-    background: white;
+.login-form-wrapper {
+    width: 600px;
+    padding-top: 100px;
+    margin: 0 auto;
 }
 
-input[type=text]:focus, input[type=password]:focus {
-    background-color: white;
-    outline: none;
+.login-form {
+    border: 4px solid white;
+    box-shadow: -20px -16px 0px 1px rgba(255,255,255,0.96);
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
-.authbtn {
-    color: rgb(241, 189, 110);
-    background-color: white;
-    padding: 14px 18px;
-    margin: 6px 0;
-    border: 1px;
-    cursor: pointer;
-    width: 50%;
-    font-weight: bold;
-    font-size: 25px;
-}
-
-.authbtn:hover {
+.header {
     color: white;
-    background-color: rgb(241, 189, 110);
-    padding: 14px 18px;
-    margin: 6px 0;
-    border: 1px;
-    cursor: pointer;
-    width: 50%;
-    font-weight: bold;
-    font-size: 25px;
-    border-radius: 0.25rem;
+    font-size: 35px;
+    letter-spacing: 10px;
+    text-transform: uppercase;
+    border-bottom: 4px solid white;
 }
 
-a {
-    color: rgb(241, 189, 110);
+.input-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
-.auth-container > label {
-    font-weight: bold;
-    display: block;
-    font-size: 25px;
-}
-
-h1 {
-    color:rgb(241, 189, 110);
-    font-size: 40px;
+.err-wrapper {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 40px;
+    right: 40px;
 }
 
 .error {
-    border: 2px;
-    background-color: rgb(199, 45, 45);
+    margin: 10px;
+    padding: 10px;
+    border: 4px solid red;
     color: white;
-    padding: 1%;
-    margin-left: 10%;
-    margin-right: 10%;
-    border-radius: 13px;
+    background-color: transparent;
+}
+
+.input-field {
+    color: white;
+    font-size: 15px;
+    background-color: transparent;
+    padding: 10px;
+    border-style: none;
+    border-bottom: 2px solid white;
+    width: 20vw;
+}
+
+.submit-button {
+    margin: 40px 0px;
+    text-decoration: none;
+    background-color: #1a918b;
+    color: white;
+    padding: 10px;
+    border: 3px solid #1a918b;
+    text-transform: uppercase;
+    font-size: 15px;
+    font-weight: bold;
+    box-shadow: 11px 10px 0px -7px #FFFFFF;
+    cursor: pointer;
+}
+
+.submit-button:hover {
+    background-color: transparent;
+    color: #1a918b;
+    box-shadow: -8px -8px 0px -7px #FFFFFF;
 }

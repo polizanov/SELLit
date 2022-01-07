@@ -12,7 +12,7 @@
             <article class="content-buttons">
                 <ng-container *ngIf="id">
                     <ng-container *ngIf="id == post.creator._id">
-                        <a [routerLink]="['/edit', post._id]" class="edit">Edit</a>
+                        <a class="edit" [routerLink]="['/edit', post._id]" >Edit</a>
                         <a (click)="deletePost(post._id)" class="delete">Delete</a>
                         <span *ngIf="post.likes.length > 0" class="likes">Likes: {{post.likes.length}}</span>
                     </ng-container>

@@ -59,10 +59,12 @@
     font-weight: bold;
     color: #1a918b;
 }
-
-.content-buttons a, 
+ 
 .content-buttons span,
-.profile-link {
+.profile-link,
+.like,
+.edit,
+.delete {
     text-decoration: none;
     background-color: #1a918b;
     color: white;

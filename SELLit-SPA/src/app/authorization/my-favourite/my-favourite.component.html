@@ -35,39 +35,3 @@
         </section>
     </div>
 </section>
-
-
-<!-- <div class="profile-container">
-    <div *ngIf="posts && posts.likedPosts.length > 0" class="top-header">
-        <div class="head-wrap">
-            <h1>Find the best deal!</h1>
-            <h2>Here is the list of your favorite products!</h2>
-        </div>
-    </div>
-    <div *ngIf="posts && posts.likedPosts.length > 0" class="top-header">
-        <div *ngFor="let post of posts!.likedPosts" class="product-wrap">
-            <div class="refactoring">
-                <div class="product-body">
-                    <h3>{{post.name}}</h3>
-                    <img src={{post.imageUrl}} alt="product-photo">
-                    <p>{{post.description.slice(0, 40) + "..."}}</p>
-                    <footer>
-                        <p>Only for: <span>{{post.price}} lv</span></p>
-                    </footer>
-                    <div id="see-more-wrap">
-                        <a [routerLink]="['/details', post._id]" class="details">See More</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div *ngIf="!(posts && posts.likedPosts.length > 0)" class="no-data">
-        <div class="no-data-wrapper">
-            <h1>Looks like you don't have any favorite products.</h1>
-            <h2>Add the first one?</h2>
-            <div id="add-first-wrap">
-                <a href="/all-products" class="details">See prducts</a>
-            </div>
-        </div>
-    </div>
-</div> -->
